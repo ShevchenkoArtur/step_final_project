@@ -10,9 +10,9 @@ const App = () => {
         <div className='main-container'>
             <Sidebar/>
             <div>
-                header
+                header <span className="icon-bin"></span>
                 <Switch>
-                    <Route path='/'>
+                    <Route exact path='/'>
                         <TodayContainer/>
                     </Route>
                     <Route path='/inbox'>
@@ -20,7 +20,6 @@ const App = () => {
                     </Route>
                 </Switch>
             </div>
-
         </div>
     );
 }

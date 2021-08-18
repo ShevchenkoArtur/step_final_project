@@ -1,15 +1,16 @@
 import React from 'react'
+import style from './Sidebar.module.scss'
 import {NavLink} from 'react-router-dom'
 
 const Sidebar = () => {
     return (
-        <aside>
+        <aside className={style.sidebar}>
             <ul>
                 <li>
                     <NavLink to='/inbox'>Входящие</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/today">Сегодня</NavLink>
+                    <NavLink to="/">Сегодня</NavLink>
                 </li>
             </ul>
         </aside>

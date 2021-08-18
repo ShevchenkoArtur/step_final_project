@@ -1,3 +1,18 @@
+@import './../../scss/utils/variables';
+
 .sidebar {
   width: 30%;
+}
+
+.sidebarBackgroundDark {
+  background-color: $sidebar-background-dark;
+}
+
+.list {
+}
+
+.item {
+}
+
+.link {
 }

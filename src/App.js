@@ -9,8 +9,8 @@ const App = () => {
     return (
         <div className='main-container'>
             <Sidebar/>
-            <div>
-                header <span className="icon-bin"></span>
+            <div className='main-content-dark'>
+                header
                 <Switch>
                     <Route exact path='/'>
                         <TodayContainer/>

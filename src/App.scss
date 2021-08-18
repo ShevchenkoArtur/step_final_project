@@ -1,3 +1,9 @@
+@import './scss/utils/variables';
+
 .main-container {
   display: flex;
+}
+
+.main-content-dark {
+  background-color: $main-background-dark;
 }

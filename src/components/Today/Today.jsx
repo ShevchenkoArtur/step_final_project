@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Today = () => {
+const Today = (props) => {
     return (
         <div>
-            Today
+            {
+                props.todayTasks.length > 0
+                    ?
+                    <div>есть</div>
+                    :
+                    <div>Тут пока ничего нет</div>
+            }
         </div>
     )
 }

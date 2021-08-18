@@ -1,4 +1,7 @@
-const initialState = {}
+const initialState = {
+    todayTasks: [],
+    inboxTasks: []
+}
 
 const TasksReducer = (state = initialState, action) => {
     switch (action.type) {

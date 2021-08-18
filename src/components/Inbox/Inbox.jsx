@@ -1,9 +1,15 @@
 import React from 'react'
 
-const Inbox = () => {
+const Inbox = (props) => {
     return (
         <div>
-            Inbox
+            {
+                props.inboxTasks.length > 0
+                    ?
+                    <div>Есть</div>
+                    :
+                    <div>Тут пока ничего нет</div>
+            }
         </div>
     )
 }

@@ -1,8 +1,10 @@
 import {combineReducers, createStore} from "redux";
 import tasksReducer from './reducers/tasksReducer'
+import themeReducer from './reducers/themeReducer';
 
 const reducers = combineReducers({
     tasksReducer,
+    themeReducer,
 })
 
 const store = createStore(reducers)

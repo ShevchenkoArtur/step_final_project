@@ -1,9 +1,8 @@
-import Today from './Today'
 import {connect} from 'react-redux';
+import App from './App';
 
 const mapStateToProps = state => {
     return {
-        todayTasks: state.tasksReducer.todayTasks,
         darkTheme: state.themeReducer.darkTheme
     }
 }
@@ -12,6 +11,6 @@ const mapDispatchToProps = dispatch => {
     return {}
 }
 
-const TodayContainer = connect(mapStateToProps, mapDispatchToProps)(Today)
+const AppContainer = connect(mapStateToProps, mapDispatchToProps)(App)
 
-export default TodayContainer
+export default AppContainer

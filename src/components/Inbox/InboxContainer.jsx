@@ -3,7 +3,8 @@ import Inbox from './Inbox';
 
 const mapStateToProps = state => {
     return {
-        inboxTasks: state.tasksReducer.inboxTasks
+        inboxTasks: state.tasksReducer.inboxTasks,
+        darkTheme: state.themeReducer.darkTheme
     }
 }
 

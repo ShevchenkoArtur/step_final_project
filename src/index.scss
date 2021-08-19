@@ -1,7 +1,16 @@
+@import './scss/utils/variables';
+
+body {
+  font-family: 'JetBrains Mono', monospace;
+  color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 @font-face {
   font-family: 'icomoon';
-  src:  url('./fonts/icomoon/icomoon.eot');
-  src:  url('./fonts/icomoon/icomoon.eot') format('embedded-opentype'),
+  src: url('./fonts/icomoon/icomoon.eot');
+  src: url('./fonts/icomoon/icomoon.eot') format('embedded-opentype'),
   url('./fonts/icomoon/icomoon.ttf') format('truetype'),
   url('./fonts/icomoon/icomoon.woff') format('woff'),
   url('./fonts/icomoon/icomoon.svg') format('svg');
@@ -28,23 +37,37 @@
 .icon-bin:before {
   content: "\e900";
 }
+
 .icon-archive:before {
   content: "\e901";
 }
+
 .icon-theme:before {
   content: "\e902";
 }
+
 .icon-star:before {
   content: "\e903";
 }
+
 .icon-search:before {
   content: "\e904";
 }
+
 .icon-calendar:before {
   content: "\e905";
 }
+
 .icon-inbox:before {
   content: "\e906";
+}
+
+.iconSidebarDark {
+  color: $sidebar-icon-dark;
+}
+
+.iconSidebarLight {
+  color: $sidebar-icon-light;
 }
 
 @import './scss/main';

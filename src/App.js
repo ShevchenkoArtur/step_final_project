@@ -1,24 +1,17 @@
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
 import './App.scss'
-import Sidebar from './components/Sidebar/Sidebar'
-import TodayContainer from './components/Today/TodayContainer'
-import InboxContainer from './components/Inbox/InboxContainer';
+import Routes from './components/Routes/Routes';
+import MainHeaderContainer from './components/MainHeader/MainHeaderContainer';
+import SidebarContainer from './components/Sidebar/SidebarContainer';
 
-const App = () => {
+const App = (props) => {
     return (
         <div className='main-container'>
-            <Sidebar/>
-            <div className='main-content-dark'>
-                header
-                <Switch>
-                    <Route exact path='/'>
-                        <TodayContainer/>
-                    </Route>
-                    <Route path='/inbox'>
-                        <InboxContainer/>
-                    </Route>
-                </Switch>
+            <SidebarContainer />
+
+            <div className={`${props.darkTheme ? 'main-content-light' : 'main-content-dark'} main-content`}>
+                <MainHeaderContainer />
+                <Routes />
             </div>
         </div>
     );

@@ -4,6 +4,14 @@
   display: flex;
 }
 
+.main-content {
+  width: 100%;
+}
+
 .main-content-dark {
   background-color: $main-background-dark;
+}
+
+.main-content-light {
+  background-color: $main-background-light;
 }

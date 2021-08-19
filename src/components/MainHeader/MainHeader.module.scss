@@ -1,0 +1,19 @@
+@import './src/scss/utils/extends';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 60px;
+}
+
+.list {
+  @extend %reset-list;
+  display: flex;
+}
+
+.item {
+}
+
+.button {
+}

@@ -1,18 +1,16 @@
 import React from 'react'
 import style from './Sidebar.module.scss'
-import {NavLink} from 'react-router-dom'
+import SidebarHeader from './SidebarHeader/SidebarHeader';
+import SidebarMenu from './SidebarMenu/SidebarMenu';
 
-const Sidebar = () => {
+const Sidebar = props => {
     return (
-        <aside className={`${style.sidebar} ${style.sidebarBackgroundDark}`}>
-            <ul className={`${style.list}`}>
-                <li className={`${style.item}`}>
-                    <NavLink className={`${style.link}`} to='/inbox'>Входящие</NavLink>
-                </li>
-                <li>
-                    <NavLink to="/">Сегодня</NavLink>
-                </li>
-            </ul>
+        <aside
+            className={`${style.sidebar} 
+                        ${props.darkTheme ? style.sidebarBackgroundLight : style.sidebarBackgroundDark}`}
+        >
+            <SidebarHeader darkTheme={props.darkTheme}/>
+            <SidebarMenu darkTheme={props.darkTheme} todayTasks={props.todayTasks} inboxTasks={props.inboxTasks}/>
         </aside>
     )
 }

@@ -1,6 +1,8 @@
 const initialState = {
     todayTasks: [],
-    inboxTasks: []
+    inboxTasks: [],
+    archiveTasks: [],
+    binTasks: []
 }
 
 const TasksReducer = (state = initialState, action) => {

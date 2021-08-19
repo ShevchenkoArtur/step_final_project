@@ -7,36 +7,76 @@ const SidebarMenu = props => {
         <ul className={`${style.list}`}>
             <li className={`${style.item}`}>
                 <NavLink
-                    className={`${style.link} 
-                                    ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
+                    className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                     to='/inbox'
                 >
-                         <span
-                             className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} 
-                             icon-inbox`}
-                             style={{paddingRight: '10px'}}
-                         >
-                        </span>
-                    Входящие
-
-                    {props.inboxTasks.length}
-                </NavLink>
-            </li>
-            <li>
-                <NavLink
-                    className={`${style.link} 
-                                    ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
-                    to="/"
-                >
+                    <div>
                         <span
-                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} 
-                            icon-star`}
+                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-inbox`}
                             style={{paddingRight: '10px'}}
                         >
                         </span>
-                    Сегодня
+                        Входящие
+                    </div>
+                    <div>
+                        {props.inboxTasks.length}
+                    </div>
+                </NavLink>
+            </li>
+            <li className={`${style.item}`}>
+                <NavLink
+                    className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
+                    to="/"
+                >
+                    <div>
+                        <span
+                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-star`}
+                            style={{paddingRight: '10px'}}
+                        >
+                        </span>
+                        Сегодня
+                    </div>
+                    <div>
+                        {props.todayTasks.length}
+                    </div>
+                </NavLink>
+            </li>
+            <li className={`${style.item}`}>
+                <NavLink
+                    className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
+                    to="/archive"
+                >
+                    <div>
+                        <span
+                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-archive`}
+                            style={{paddingRight: '10px'}}
+                        >
+                        </span>
+                        Архив
+                    </div>
 
-                    {props.todayTasks.length}
+                    <div>
+                        {props.todayTasks.length}
+                    </div>
+                </NavLink>
+            </li>
+            <li className={`${style.item}`}>
+                <NavLink
+                    className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
+                    to="/bin"
+                >
+                    <div>
+                         <span
+                             className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-bin`}
+                             style={{paddingRight: '10px'}}
+                         >
+                        </span>
+                        Корзина
+                    </div>
+
+                    <div>
+                        {props.todayTasks.length}
+                    </div>
                 </NavLink>
             </li>
         </ul>

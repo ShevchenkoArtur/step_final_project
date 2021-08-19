@@ -20,6 +20,10 @@
 
 .item {
   padding-bottom: 16px;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
 }
 
 .linkColorDark {
@@ -28,7 +32,9 @@
 
 .link {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
 }
 
 :global(.linkColorLight) {

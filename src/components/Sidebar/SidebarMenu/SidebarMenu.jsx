@@ -56,7 +56,7 @@ const SidebarMenu = props => {
                     </div>
 
                     <div>
-                        {props.todayTasks.length}
+                        {props.archiveTasks.length}
                     </div>
                 </NavLink>
             </li>
@@ -75,7 +75,7 @@ const SidebarMenu = props => {
                     </div>
 
                     <div>
-                        {props.todayTasks.length}
+                        {props.binTasks.length}
                     </div>
                 </NavLink>
             </li>

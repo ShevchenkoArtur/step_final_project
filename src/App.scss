@@ -1,7 +1,8 @@
 @import './scss/utils/variables';
 
-.main-container {
-  display: flex;
+.app-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 10fr;
 }
 
 .main-content {

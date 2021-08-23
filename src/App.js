@@ -6,7 +6,7 @@ import SidebarContainer from './components/Sidebar/SidebarContainer';
 
 const App = (props) => {
     return (
-        <div className='main-container'>
+        <div className='app-wrapper'>
             <SidebarContainer />
 
             <div className={`${props.darkTheme ? 'main-content-light' : 'main-content-dark'} main-content`}>

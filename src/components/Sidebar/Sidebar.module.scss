@@ -2,7 +2,7 @@
 @import './src/scss/utils/extends';
 
 .sidebar {
-
+  height: 100vh;
 }
 
 .sidebarBackgroundDark {
@@ -27,7 +27,7 @@
 }
 
 .linkColorDark {
-  color: $link-color-dark;
+  color: $text-color-dark;
 }
 
 .link {
@@ -38,10 +38,10 @@
 }
 
 :global(.linkColorLight) {
-  color: $link-color-light;
+  color: $text-color-light;
 }
 
 :global(.linkColorDark) {
-  color: $link-color-dark;
+  color: $text-color-dark;
 }
 

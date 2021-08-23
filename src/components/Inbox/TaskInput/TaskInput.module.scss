@@ -1,0 +1,26 @@
+@import '../../../scss/utils/variables';
+
+.addTaskBlock {
+  border: 1px solid red;
+}
+
+.select {
+}
+
+.textarea {
+  width: 100%;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  background-color: inherit;
+  border: 0;
+
+}
+
+.textareaColorLight {
+  color: $text-color-light;
+}
+
+.textareaColorDark {
+  color: $text-color-dark;
+}

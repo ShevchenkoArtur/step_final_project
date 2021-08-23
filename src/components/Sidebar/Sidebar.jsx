@@ -10,7 +10,12 @@ const Sidebar = props => {
                         ${props.darkTheme ? style.sidebarBackgroundLight : style.sidebarBackgroundDark}`}
         >
             <SidebarHeader darkTheme={props.darkTheme}/>
-            <SidebarMenu darkTheme={props.darkTheme} todayTasks={props.todayTasks} inboxTasks={props.inboxTasks}/>
+            <SidebarMenu darkTheme={props.darkTheme}
+                         todayTasks={props.todayTasks}
+                         inboxTasks={props.inboxTasks}
+                         archiveTasks={props.archiveTasks}
+                         binTasks={props.binTasks}
+            />
         </aside>
     )
 }

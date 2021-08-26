@@ -5,7 +5,7 @@ import logo from './../../../images/logo.png'
 const SidebarHeader = props => {
     return (
         <div className={`${props.darkTheme ? 'linkColorLight' : 'linkColorDark'} ${style.header}`}>
-            <img style={{paddingRight: '8px'}} width='40' src={logo} alt='img'/>Planner App
+            burger<img style={{paddingRight: '8px'}} width='40' src={logo} alt='img'/>Planner App
         </div>
     );
 };

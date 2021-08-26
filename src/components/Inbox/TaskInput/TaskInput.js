@@ -11,8 +11,10 @@ const TaskInput = props => {
     }
 
     return (
-        <div className={style.addTaskBlock}>
-            <textarea className={`${style.textarea}`} placeholder='Новая задача' value={props.textarea.value}
+        <div className={`${style.addTaskBlock} ${props.darkTheme ? style.addTaskBlockLight : style.addTaskBlockDark}`}>
+            <textarea className={`${style.textarea} 
+                                ${props.darkTheme ? style.textareaColorLight : style.textareaColorDark}`}
+                      placeholder='Новая задача' value={props.textarea.value}
                       onChange={updateTextarea}
             />
 

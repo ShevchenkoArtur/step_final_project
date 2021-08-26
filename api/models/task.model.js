@@ -5,6 +5,12 @@ module.exports = (sequelize, Sequelize) => {
         },
         category: {
             type: Sequelize.STRING
+        },
+        inBin: {
+            type: Sequelize.BOOLEAN
+        },
+        isLate: {
+            type: Sequelize.BOOLEAN
         }
     });
 

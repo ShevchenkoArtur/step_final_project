@@ -3,7 +3,7 @@ import Archive from './Archive';
 
 const mapStateToProps = state => {
     return {
-        archiveTasks: state.tasksReducer.archiveTasks,
+        tasks: state.tasksReducer.tasks,
         darkTheme: state.themeReducer.darkTheme
     }
 }

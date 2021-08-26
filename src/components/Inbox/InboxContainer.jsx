@@ -4,7 +4,7 @@ import InboxApi from './InboxApi';
 
 const mapStateToProps = state => {
     return {
-        inboxTasks: state.tasksReducer.inboxTasks,
+        tasks: state.tasksReducer.tasks,
         darkTheme: state.themeReducer.darkTheme
     }
 }

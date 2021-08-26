@@ -4,9 +4,7 @@ import Sidebar from './Sidebar';
 const mapStateToProps = state => {
     return {
         darkTheme: state.themeReducer.darkTheme,
-        todayTasks: state.tasksReducer.todayTasks,
-        inboxTasks: state.tasksReducer.inboxTasks,
-        archiveTasks: state.tasksReducer.archiveTasks,
+        tasks: state.tasksReducer.tasks,
         binTasks: state.tasksReducer.binTasks
     }
 }

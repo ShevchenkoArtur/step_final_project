@@ -1,16 +1,11 @@
 import React from 'react';
 
 const Task = (props) => {
-
-    const deleteTask = (id) => {
-        props.deleteTask(props.task.id)
-        props.gg(props.task.id)
-    }
-
     return (
         <div>
-            {props.task.body}
-            <button onClick={deleteTask}>
+            {`${props.task.isLate}`}
+            <textarea value={props.task.body}/>
+            <button onClick={props.moveTaskIntoBin}>
                 <span className="icon-bin"></span>
             </button>
         </div>

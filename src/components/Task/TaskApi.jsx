@@ -6,26 +6,42 @@ class TaskApi extends React.Component {
 
     constructor(props) {
         super(props);
-        this.deleteTask = this.deleteTask.bind(this)
+        this.moveTaskIntoBin = this.moveTaskIntoBin.bind(this)
+        this.onEditTask = this.onEditTask.bind(this)
     }
 
-    deleteTask(id) {
-        axios.delete(`http://localhost:8080/api/tasks/${id}`)
+    moveTaskIntoBin() {
+        const data = {
+            inBin: true
+        }
+
+        axios.put(`http://localhost:8080/api/tasks/${this.props.task.id}`, data)
+            .then(response => {
+                console.log(response)
+                this.props.moveTaskIntoBin(this.props.task.id, true)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    onEditTask(id) {
+        axios.put(`http://localhost:8080/api/tasks/${id}`)
             .then(response => {
                 console.log(response)
             })
             .catch(error => {
                 console.log(error)
             })
-
-        //this.props.deleteTask(id)
     }
 
     render() {
         return (
-            <Task deleteTask={this.deleteTask}
+            <Task
+                moveTaskIntoBin={this.moveTaskIntoBin}
+                  onEditTask={this.onEditTask}
                   task={this.props.task}
-                  gg={this.props.deleteTask}
+                  editTaskText={this.props.editTaskText}
             />
         )
     }

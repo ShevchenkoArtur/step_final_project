@@ -1,6 +1,7 @@
 import React from 'react';
 import style from '../Sidebar.module.scss';
 import {NavLink} from 'react-router-dom';
+import Projects from './Projects/Projects';
 
 const SidebarMenu = props => {
     return (
@@ -19,7 +20,7 @@ const SidebarMenu = props => {
                         Входящие
                     </div>
                     <div>
-                        {props.inboxTasks.length}
+                        {props.tasks.filter(el => el.category === 'inbox').length}
                     </div>
                 </NavLink>
             </li>
@@ -37,7 +38,7 @@ const SidebarMenu = props => {
                         Сегодня
                     </div>
                     <div>
-                        {props.todayTasks.length}
+                        {props.tasks.filter(el => el.category === 'today' && !el.inBin).length}
                     </div>
                 </NavLink>
             </li>
@@ -56,7 +57,7 @@ const SidebarMenu = props => {
                     </div>
 
                     <div>
-                        {props.archiveTasks.length}
+                        {props.tasks.filter(el => el.category === 'archive').length}
                     </div>
                 </NavLink>
             </li>
@@ -78,6 +79,9 @@ const SidebarMenu = props => {
                         {props.binTasks.length}
                     </div>
                 </NavLink>
+            </li>
+            <li className={`${style.item}`}>
+               <Projects />
             </li>
         </ul>
     );

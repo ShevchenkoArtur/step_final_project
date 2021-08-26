@@ -15,7 +15,9 @@ exports.create = (req, res) => {
     // Create a Task
     const task = {
         body: req.body.body,
-        category: req.body.category
+        category: req.body.category,
+        inBin: req.body.inBin ? req.body.inBin : false,
+        isLate: req.body.isLate ? req.body.isLate : false,
     };
 
     // Save Task in the database

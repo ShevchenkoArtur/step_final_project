@@ -1,11 +1,15 @@
 import {connect} from 'react-redux';
 import TodayApi from './TodayApi';
-import {deleteTask, getTasks, getTodayTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {
+    editTaskText, findLaterTasks,
+    getTasks, getTodayDate,
+    moveTaskIntoBin
+} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
-        todayTasks: state.tasksReducer.todayTasks,
-        darkTheme: state.themeReducer.darkTheme
+        tasks: state.tasksReducer.tasks,
+        darkTheme: state.themeReducer.darkTheme,
     }
 }
 
@@ -14,9 +18,18 @@ const mapDispatchToProps = dispatch => {
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
         },
-        deleteTask: (id) => {
-            dispatch(deleteTask(id))
+        moveTaskIntoBin: (id, inBin) => {
+            dispatch(moveTaskIntoBin(id, inBin))
         },
+        editTaskText: (id, newValue) => {
+            dispatch(editTaskText(id, newValue))
+        },
+        getTodayDate: (date) => {
+            dispatch(getTodayDate(date))
+        },
+        findLaterTasks: () => {
+            dispatch(findLaterTasks())
+        }
     }
 }
 

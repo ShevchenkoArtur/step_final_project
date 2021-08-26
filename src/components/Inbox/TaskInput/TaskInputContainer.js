@@ -5,7 +5,8 @@ import TaskInputApi from './TaskInputApi';
 const mapStateToProps = state => {
     return {
         textarea: state.tasksReducer.textarea,
-        select: state.tasksReducer.select
+        select: state.tasksReducer.select,
+        darkTheme: state.themeReducer.darkTheme
     }
 }
 

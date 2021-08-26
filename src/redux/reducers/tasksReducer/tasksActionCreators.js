@@ -1,7 +1,7 @@
 import {
     ADD_TASK,
-    DELETE_TASK,
-    GET_TASKS,
+    EDIT_TASK_TEXT, FIND_LATER_TASKS,
+    GET_TASKS, GET_TODAY_DATE, MOVE_TASK_INTO_BIN,
     RESET_TEXTAREA,
     UPDATE_SELECT,
     UPDATE_TEXTAREA
@@ -11,5 +11,8 @@ export const addTask = (id) => ({type: ADD_TASK, id})
 export const updateTextarea = newValue => ({type: UPDATE_TEXTAREA, newValue})
 export const updateSelect = newValue => ({type: UPDATE_SELECT, newValue})
 export const resetTextarea = () => ({type: RESET_TEXTAREA})
-export const deleteTask = (id) => ({type: DELETE_TASK, id})
+export const moveTaskIntoBin = (id) => ({type: MOVE_TASK_INTO_BIN, id})
 export const getTasks = (tasks) => ({type: GET_TASKS, tasks})
+export const editTaskText = (id, newValue) => ({type: EDIT_TASK_TEXT, id, newValue})
+export const getTodayDate = (date) => ({type: GET_TODAY_DATE, date})
+export const findLaterTasks = () => ({type: FIND_LATER_TASKS})

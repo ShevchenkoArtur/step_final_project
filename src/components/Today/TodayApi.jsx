@@ -20,8 +20,11 @@ class TodayApi extends React.Component {
     render() {
         return (
             <Today darkTheme={this.props.darkTheme}
-                   todayTasks={this.props.todayTasks}
-                   deleteTask={this.props.deleteTask}
+                   moveTaskIntoBin={this.props.moveTaskIntoBin}
+                   editTaskText={this.props.editTaskText}
+                   tasks={this.props.tasks}
+                   getTodayDate={this.props.getTodayDate}
+                   findLaterTasks={this.props.findLaterTasks}
             />
         )
     }

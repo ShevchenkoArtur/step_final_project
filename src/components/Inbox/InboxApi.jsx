@@ -20,7 +20,9 @@ class InboxApi extends React.Component {
 
     render() {
         return (
-            <Inbox inboxTasks={this.props.inboxTasks}/>
+            <Inbox tasks={this.props.tasks}
+                   darkTheme={this.props.darkTheme}
+            />
         )
     }
 

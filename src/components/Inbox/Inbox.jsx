@@ -2,6 +2,20 @@ import React from 'react'
 import TaskInputContainer from './TaskInput/TaskInputContainer';
 
 const Inbox = (props) => {
+
+    const displayTasks = () => {
+        const inboxTasks = props.tasks.filter(el => el.category === 'inbox' && !el.inBin)
+
+        if(inboxTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+
+        return inboxTasks.map((el, idx) =>
+            <div key={idx} className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
+                <p>id: {el.id}</p>
+                <p>body: {el.body}</p>
+                <p>category: {el.category}</p>
+            </div>)
+    }
+
     return (
         <div>
             <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
@@ -12,17 +26,7 @@ const Inbox = (props) => {
             <TaskInputContainer />
 
             {
-                props.inboxTasks.length > 0
-                    ?
-                    props.inboxTasks.map((el, idx) =>
-                        <div key={idx}>
-                            <p>id: {el.id}</p>
-                            <p>body: {el.body}</p>
-                            <p>category: {el.category}</p>
-                        </div>
-                    )
-                    :
-                    <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+                displayTasks()
             }
         </div>
     )

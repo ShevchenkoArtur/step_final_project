@@ -1,7 +1,7 @@
 import {
     ADD_TASK,
-    DELETE_TASK, DISPLAY_TODAY_TASKS,
-    GET_TASKS, GET_TODAY_TASKS,
+    EDIT_TASK_TEXT, FIND_LATER_TASKS,
+    GET_TASKS, GET_TODAY_DATE, MOVE_TASK_INTO_BIN,
     RESET_TEXTAREA,
     UPDATE_SELECT,
     UPDATE_TEXTAREA
@@ -9,9 +9,6 @@ import {
 
 const initialState = {
     tasks: [],
-    todayTasks: [],
-    inboxTasks: [],
-    archiveTasks: [],
     binTasks: [],
 
     textarea: {
@@ -20,28 +17,55 @@ const initialState = {
 
     select: {
         value: 'inbox',
-    }
+    },
+
+    todayDate: null
 }
 
 const TasksReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_TODAY_DATE:
+            return {
+                ...state,
+                todayDate: action.date,
+            }
         case GET_TASKS:
             return {
                 ...state,
                 tasks: action.tasks,
-                todayTasks: state.tasks.filter(el => el.category === 'today'),
-                inboxTasks: state.tasks.filter(el => el.category === 'inbox'),
-                archiveTasks: state.tasks.filter(el => el.category === 'archive'),
-                binTasks: state.tasks.filter(el => el.category === 'bin'),
+                binTasks: state.tasks.filter(el => el.inBin)
             }
-        case DELETE_TASK:
+        case FIND_LATER_TASKS:
+            const getFormatDate = (date) => {
+                let [year, month, another] = date.split('-')
+                let [day] = another.split('T')
+                return new Date(year, month - 1, day)
+            }
+            state.tasks.map(el => {
+                if (state.todayDate < getFormatDate(el.createdAt)) {
+                    return {
+                        ...el,
+                        isLate: true
+                    }
+                }
+            })
+        case MOVE_TASK_INTO_BIN:
             return {
                 ...state,
                 tasks: state.tasks.filter(el => el.id !== action.id),
-                todayTasks: state.tasks.filter(el => el.category === 'today' && el.id !== action.id),
-                inboxTasks: state.tasks.filter(el => el.category === 'inbox' && el.id !== action.id),
-                archiveTasks: state.tasks.filter(el => el.category === 'archive' && el.id !== action.id),
-                binTasks: state.tasks.filter(el => el.category === 'bin' && el.id !== action.id),
+                binTasks: [...state.binTasks, ...state.tasks.filter(el => el.id === action.id)]
+            }
+        case EDIT_TASK_TEXT:
+            return {
+                ...state,
+                tasks: state.tasks.map(el => {
+                    if (el.id === action.id) {
+                        return {
+                            ...el,
+                            body: action.newValue
+                        }
+                    }
+                }),
             }
         case UPDATE_SELECT:
             return {
@@ -68,58 +92,22 @@ const TasksReducer = (state = initialState, action) => {
                 }
             }
         case ADD_TASK:
-            switch (state.select.value) {
-                case 'today':
-                    if (state.textarea.value !== '') {
-                        return {
-                            ...state,
-                            todayTasks: [
-                                ...state.todayTasks,
-                                {
-                                    id: action.id,
-                                    body: state.textarea.value,
-                                    category: state.select.value
-                                }
-                            ],
-                            tasks: [
-                                ...state.tasks,
-                                {
-                                    id: action.id,
-                                    body: state.textarea.value,
-                                    category: state.select.value
-                                }
-                            ],
-                            textarea: {
-                                ...state.textarea,
-                                value: ''
-                            }
+            if (state.textarea.value !== '') {
+                return {
+                    ...state,
+                    tasks: [
+                        ...state.tasks,
+                        {
+                            id: action.id,
+                            body: state.textarea.value,
+                            category: state.select.value
                         }
+                    ],
+                    textarea: {
+                        ...state.textarea,
+                        value: ''
                     }
-                case 'inbox':
-                    if (state.textarea.value !== '') {
-                        return {
-                            ...state,
-                            inboxTasks: [...state.inboxTasks,
-                                {
-                                    body: state.textarea.value,
-                                    category: state.select.value
-                                }
-                            ],
-                            tasks: [
-                                ...state.tasks,
-                                {
-                                    body: state.textarea.value,
-                                    category: state.select.value
-                                }
-                            ],
-                            textarea: {
-                                ...state.textarea,
-                                value: ''
-                            }
-                        }
-                    }
-                default:
-                    return state
+                }
             }
         default:
             return state

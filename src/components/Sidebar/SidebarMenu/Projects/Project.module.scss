@@ -1,0 +1,22 @@
+.projectsCheckbox {
+  display: none;
+
+  &:checked {
+    .list {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.projects {
+
+}
+
+.list {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.item {
+}

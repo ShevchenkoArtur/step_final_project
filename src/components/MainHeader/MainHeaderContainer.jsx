@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import MainHeader from './MainHeader';
-import {switchDarkTheme} from '../../redux/actionCreators';
+import {switchDarkTheme} from '../../redux/reducers/themeReducer/themeActionCreators';
 
 const mapStateToProps = state => {
     return {}

@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
-import Inbox from './Inbox';
+import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import InboxApi from './InboxApi';
 
 const mapStateToProps = state => {
     return {
@@ -9,9 +10,13 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        getTasks: (tasks) => {
+            dispatch(getTasks(tasks))
+        }
+    }
 }
 
-const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(Inbox)
+const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(InboxApi)
 
 export default InboxContainer

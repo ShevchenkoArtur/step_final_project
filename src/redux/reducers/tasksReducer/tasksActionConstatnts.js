@@ -1,3 +1,5 @@
+export const GET_TASKS = 'GET_TASKS'
+export const DELETE_TASK = 'DELETE_TASK'
 export const ADD_TASK = 'ADD_TASK'
 export const UPDATE_TEXTAREA = 'UPDATE_TEXTAREA'
 export const UPDATE_SELECT = 'UPDATE_SELECT'

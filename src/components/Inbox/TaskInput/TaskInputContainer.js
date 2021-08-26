@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
-import TaskInput from './TaskInput';
 import {addTask, updateSelect, updateTextarea} from '../../../redux/reducers/tasksReducer/tasksActionCreators';
+import TaskInputApi from './TaskInputApi';
 
 const mapStateToProps = state => {
     return {
@@ -19,12 +19,12 @@ const mapDispatchToProps = dispatch => {
             dispatch(updateSelect(newValue))
         },
 
-        addTask: () => {
-            dispatch(addTask())
+        addTask: (id) => {
+            dispatch(addTask(id))
         }
     }
 }
 
-const TaskInputContainer = connect(mapStateToProps, mapDispatchToProps)(TaskInput)
+const TaskInputContainer = connect(mapStateToProps, mapDispatchToProps)(TaskInputApi)
 
 export default TaskInputContainer

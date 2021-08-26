@@ -1,4 +1,4 @@
-import {SWITCH_DARK_THEME} from '../actionTypeConstants';
+import {SWITCH_DARK_THEME} from './themeActionConstants';
 
 const initialState = {
     darkTheme: false

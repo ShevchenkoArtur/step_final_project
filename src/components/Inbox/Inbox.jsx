@@ -14,7 +14,13 @@ const Inbox = (props) => {
             {
                 props.inboxTasks.length > 0
                     ?
-                    props.inboxTasks.map((el, idx) => <div key={idx}>{el.body}</div>)
+                    props.inboxTasks.map((el, idx) =>
+                        <div key={idx}>
+                            <p>id: {el.id}</p>
+                            <p>body: {el.body}</p>
+                            <p>category: {el.category}</p>
+                        </div>
+                    )
                     :
                     <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
             }

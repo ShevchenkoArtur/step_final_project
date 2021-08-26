@@ -14,8 +14,8 @@ exports.create = (req, res) => {
 
     // Create a Task
     const task = {
-        title: req.body.title,
         body: req.body.body,
+        category: req.body.category
     };
 
     // Save Task in the database
@@ -34,8 +34,8 @@ exports.create = (req, res) => {
 
 // Retrieve all Tasks from the database.
 exports.findAll = (req, res) => {
-    const brand = req.query.body;
-    const condition = brand ? { body: { [Op.like]: `%${brand}%` } } : null;
+    const body = req.query.body;
+    const condition = body ? { body: { [Op.like]: `%${body}%` } } : null;
 
     Task.findAll({ where: condition })
         .then(data => {

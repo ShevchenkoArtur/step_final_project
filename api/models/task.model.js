@@ -1,9 +1,9 @@
 module.exports = (sequelize, Sequelize) => {
     const Task = sequelize.define("task", {
-        title: {
+        body: {
             type: Sequelize.STRING
         },
-        body: {
+        category: {
             type: Sequelize.STRING
         }
     });

@@ -1,5 +1,6 @@
-import Today from './Today'
 import {connect} from 'react-redux';
+import TodayApi from './TodayApi';
+import {deleteTask, getTasks, getTodayTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -9,9 +10,16 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        getTasks: (tasks) => {
+            dispatch(getTasks(tasks))
+        },
+        deleteTask: (id) => {
+            dispatch(deleteTask(id))
+        },
+    }
 }
 
-const TodayContainer = connect(mapStateToProps, mapDispatchToProps)(Today)
+const TodayContainer = connect(mapStateToProps, mapDispatchToProps)(TodayApi)
 
 export default TodayContainer

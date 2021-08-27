@@ -1,9 +1,10 @@
 import {connect} from 'react-redux';
-import {emptyTrash} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {emptyTrash, getTasks, restoreTask} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 import BinApi from './BinApi';
 
 const mapStateToProps = state => {
     return {
+        tasks: state.tasksReducer.tasks,
         binTasks: state.tasksReducer.binTasks,
         darkTheme: state.themeReducer.darkTheme
     }
@@ -13,6 +14,12 @@ const mapDispatchToProps = dispatch => {
     return {
         emptyTrash: () => {
             dispatch(emptyTrash())
+        },
+        restoreTask: () => {
+          dispatch(restoreTask())
+        },
+        getTasks: (tasks) => {
+            dispatch(getTasks(tasks))
         }
     }
 }

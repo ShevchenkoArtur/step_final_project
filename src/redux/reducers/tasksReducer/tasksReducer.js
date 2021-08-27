@@ -2,7 +2,7 @@ import {
     ADD_TASK,
     EDIT_TASK_TEXT, EMPTY_TRASH, FIND_LATER_TASKS,
     GET_TASKS, GET_TODAY_DATE, MOVE_TASK_INTO_BIN,
-    RESET_TEXTAREA,
+    RESET_TEXTAREA, RESTORE_TASK,
     UPDATE_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
@@ -55,9 +55,15 @@ const TasksReducer = (state = initialState, action) => {
                 tasks: state.tasks.filter(el => el.id !== action.id),
                 binTasks: [...state.binTasks, ...state.tasks.filter(el => el.id === action.id)]
             }
+        case RESTORE_TASK:
+            return {
+                ...state,
+                binTasks: state.tasks.filter(el => el.inBin)
+            }
         case EMPTY_TRASH:
             return {
                 ...state,
+                tasks: state.tasks.filter(el => !el.inBin),
                 binTasks: state.tasks.filter(el => el.inBin)
             }
         case EDIT_TASK_TEXT:

@@ -19,6 +19,7 @@ exports.create = (req, res) => {
         inBin: req.body.inBin ? req.body.inBin : false,
         isLate: req.body.isLate ? req.body.isLate : false,
         isDone: req.body.isDone ? req.body.isDone : false,
+        priority: req.body.priority,
     };
 
     // Save Task in the database

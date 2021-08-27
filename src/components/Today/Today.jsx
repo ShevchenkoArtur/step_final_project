@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskApi from '../Task/TaskApi';
+import SortContainer from '../Sort/SortContainer';
 
 const Today = props => {
     const getTodayDate = () => {
@@ -49,10 +50,15 @@ const Today = props => {
 
     return (
         <div>
-            <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-star"></span>
-                Сегодня <span style={{fontSize: '15px'}}>{getTodayDate()}</span>
-            </h1>
+            <div>
+                <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
+                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-star"></span>
+                    Сегодня <span style={{fontSize: '15px'}}>{getTodayDate()}</span>
+                </h1>
+
+                <SortContainer/>
+            </div>
+
 
             {/*{props.findLaterTasks()}*/}
             {displayTasks()}

@@ -1,9 +1,8 @@
 import {
-    ADD_TASK,
-    EDIT_TASK_TEXT, EMPTY_TRASH, FIND_LATER_TASKS,
-    GET_TASKS, GET_TODAY_DATE, MOVE_TASK_INTO_BIN,
-    RESET_TEXTAREA, RESTORE_TASK,
-    UPDATE_SELECT,
+    ADD_TASK, CHANGE_PRIORITY,
+    EDIT_TASK_TEXT, FIND_LATER_TASKS,
+    GET_TASKS, GET_TODAY_DATE,
+    RESET_TEXTAREA, RESTORE_TASK, SORT_BY, UPDATE_CATEGORY_SELECT, UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
 
@@ -14,13 +13,23 @@ const initialState = {
         value: '',
     },
 
-    select: {
-        value: 'inbox',
+    categorySelect: {
+        value: '',
+    },
+
+    sortSelect: {
+        value: ''
+    },
+
+    priority: {
+        highValue: 1,
+        mediumValue: 2,
+        lowValue: 3,
+        selectedValue: null
     },
 
     todayDate: null
 }
-
 
 
 const TasksReducer = (state = initialState, action) => {
@@ -66,11 +75,19 @@ const TasksReducer = (state = initialState, action) => {
                     }
                 }),
             }
-        case UPDATE_SELECT:
+        case UPDATE_CATEGORY_SELECT:
             return {
                 ...state,
-                select: {
-                    ...state.select,
+                categorySelect: {
+                    ...state.categorySelect,
+                    value: action.newValue
+                }
+            }
+        case UPDATE_SORT_SELECT:
+            return {
+                ...state,
+                sortSelect: {
+                    ...state.sortSelect,
                     value: action.newValue
                 }
             }
@@ -90,6 +107,19 @@ const TasksReducer = (state = initialState, action) => {
                     value: ''
                 }
             }
+        case CHANGE_PRIORITY:
+            return {
+                ...state,
+                priority: {
+                    ...state.priority,
+                    selectedValue: action.newValue
+                }
+            }
+        case SORT_BY:
+            return {
+                ...state,
+                [action.arr]: [...state.action.arr].sort((a, b) => a.priority - b.priority)
+            }
         case ADD_TASK:
             if (state.textarea.value !== '') {
                 return {
@@ -99,12 +129,17 @@ const TasksReducer = (state = initialState, action) => {
                         {
                             id: action.id,
                             body: state.textarea.value,
-                            category: state.select.value
+                            category: state.categorySelect.value,
+                            priority: state.priority.selectedValue,
                         }
                     ],
                     textarea: {
                         ...state.textarea,
                         value: ''
+                    },
+                    priority: {
+                        ...state.priority,
+                        selectedValue: null
                     }
                 }
             }
@@ -112,5 +147,5 @@ const TasksReducer = (state = initialState, action) => {
             return state
     }
 }
-window.tasks = initialState.tasks
+
 export default TasksReducer

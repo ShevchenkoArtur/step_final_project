@@ -14,6 +14,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         isDone: {
             type: Sequelize.BOOLEAN
+        },
+        priority: {
+            type: Sequelize.STRING
         }
     });
 

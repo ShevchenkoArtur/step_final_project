@@ -12,7 +12,8 @@ class TaskInputApi extends React.Component {
     addTask() {
         const data = {
             body: this.props.textarea.value,
-            category: this.props.select.value,
+            category: this.props.categorySelect.value,
+            priority: this.props.priority.selectedValue
         }
 
         axios.post('http://localhost:8080/api/tasks', data)
@@ -28,10 +29,12 @@ class TaskInputApi extends React.Component {
         return (
             <TaskInput addTask={this.addTask}
                        textarea={this.props.textarea}
-                       select={this.props.select}
+                       categorySelect={this.props.categorySelect}
                        updateTextarea={this.props.updateTextarea}
-                       updateSelect={this.props.updateSelect}
+                       updateCategorySelect={this.props.updateCategorySelect}
                        darkTheme={this.props.darkTheme}
+                       priority={this.props.priority}
+                       changePriority={this.props.changePriority}
             />
         )
     }

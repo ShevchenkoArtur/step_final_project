@@ -6,9 +6,10 @@ const Task = (props) => {
             <label>
                checkbox<input type="checkbox" onClick={props.moveTaskIntoArchive}/>
             </label>
+            {` id: ${props.task.id} priority: ${props.task.priority} `}
 
-            {`${props.task.isLate}`}
             <textarea value={props.task.body}/>
+
             <button onClick={props.moveTaskIntoBin}>
                 <span className="icon-bin"></span>
             </button>

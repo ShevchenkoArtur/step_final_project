@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {emptyTrash, getTasks, restoreTask} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {getTasks, restoreTask} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 import BinApi from './BinApi';
 
 const mapStateToProps = state => {

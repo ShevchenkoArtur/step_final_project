@@ -18,7 +18,14 @@ class TaskApi extends React.Component {
         axios.put(`http://localhost:8080/api/tasks/${this.props.task.id}`, data)
             .then(response => {
                 console.log(response)
-                this.props.moveTaskIntoBin(this.props.task.id, true)
+                axios.get(`http://localhost:8080/api/tasks`)
+                    .then(response => {
+                        this.props.getTasks(response.data)
+                        console.log(response)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
                 console.log(error)
@@ -39,9 +46,9 @@ class TaskApi extends React.Component {
         return (
             <Task
                 moveTaskIntoBin={this.moveTaskIntoBin}
-                  onEditTask={this.onEditTask}
-                  task={this.props.task}
-                  editTaskText={this.props.editTaskText}
+                onEditTask={this.onEditTask}
+                task={this.props.task}
+                editTaskText={this.props.editTaskText}
             />
         )
     }

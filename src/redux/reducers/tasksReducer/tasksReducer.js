@@ -9,7 +9,7 @@ import {
 
 const initialState = {
     tasks: [],
-    binTasks: [],
+    // binTasks: [],
 
     textarea: {
         value: '',
@@ -22,6 +22,8 @@ const initialState = {
     todayDate: null
 }
 
+
+
 const TasksReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_TODAY_DATE:
@@ -33,7 +35,6 @@ const TasksReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: action.tasks,
-                binTasks: state.tasks.filter(el => el.inBin)
             }
         case FIND_LATER_TASKS:
             const getFormatDate = (date) => {
@@ -49,22 +50,16 @@ const TasksReducer = (state = initialState, action) => {
                     }
                 }
             })
-        case MOVE_TASK_INTO_BIN:
-            return {
-                ...state,
-                tasks: state.tasks.filter(el => el.id !== action.id),
-                binTasks: [...state.binTasks, ...state.tasks.filter(el => el.id === action.id)]
-            }
         case RESTORE_TASK:
             return {
                 ...state,
-                binTasks: state.tasks.filter(el => el.inBin)
+                binTasks: state.tasks.filter(el => el.id !== action.id)
             }
         case EMPTY_TRASH:
             return {
                 ...state,
-                tasks: state.tasks.filter(el => !el.inBin),
-                binTasks: state.tasks.filter(el => el.inBin)
+                //tasks: state.tasks.filter(el => !el.inBin),
+                binTasks: [state.tasks.filter(el => el.inBin)]
             }
         case EDIT_TASK_TEXT:
             return {
@@ -124,5 +119,5 @@ const TasksReducer = (state = initialState, action) => {
             return state
     }
 }
-
+window.tasks = initialState.tasks
 export default TasksReducer

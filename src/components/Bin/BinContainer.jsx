@@ -15,8 +15,8 @@ const mapDispatchToProps = dispatch => {
         emptyTrash: () => {
             dispatch(emptyTrash())
         },
-        restoreTask: () => {
-          dispatch(restoreTask())
+        restoreTask: (id) => {
+          dispatch(restoreTask(id))
         },
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))

@@ -9,7 +9,7 @@ const Inbox = (props) => {
         if(inboxTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return inboxTasks.map((el, idx) =>
-            <div key={idx} className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
+            <div key={el.id} className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
                 <p>id: {el.id}</p>
                 <p>body: {el.body}</p>
                 <p>category: {el.category}</p>

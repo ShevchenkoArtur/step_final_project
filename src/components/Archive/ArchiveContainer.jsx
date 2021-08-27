@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
-import Archive from './Archive';
+import ArchiveApi from './ArchiveApi';
+import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -9,9 +10,13 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        getTasks: (tasks) => {
+            dispatch(getTasks(tasks))
+        }
+    }
 }
 
-const ArchiveContainer = connect(mapStateToProps, mapDispatchToProps)(Archive)
+const ArchiveContainer = connect(mapStateToProps, mapDispatchToProps)(ArchiveApi)
 
 export default ArchiveContainer

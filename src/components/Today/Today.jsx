@@ -40,7 +40,11 @@ const Today = props => {
         if (todayTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return todayTasks.map((el) =>
-            <TaskApi key={el.id} moveTaskIntoBin={props.moveTaskIntoBin} task={el} editTaskText={props.editTaskText}/>)
+            <TaskApi key={el.id}
+                     task={el}
+                     editTaskText={props.editTaskText}
+                     getTasks={props.getTasks}
+            />)
     }
 
     return (

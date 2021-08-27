@@ -11,6 +11,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         isLate: {
             type: Sequelize.BOOLEAN
+        },
+        isDone: {
+            type: Sequelize.BOOLEAN
         }
     });
 

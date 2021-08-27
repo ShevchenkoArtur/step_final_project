@@ -3,7 +3,6 @@ import TodayApi from './TodayApi';
 import {
     editTaskText, findLaterTasks,
     getTasks, getTodayDate,
-    moveTaskIntoBin
 } from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
@@ -17,9 +16,6 @@ const mapDispatchToProps = dispatch => {
     return {
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
-        },
-        moveTaskIntoBin: (id, inBin) => {
-            dispatch(moveTaskIntoBin(id, inBin))
         },
         editTaskText: (id, newValue) => {
             dispatch(editTaskText(id, newValue))

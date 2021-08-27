@@ -76,7 +76,7 @@ const SidebarMenu = props => {
                     </div>
 
                     <div>
-                        {props.binTasks.length}
+                        {props.tasks.filter(el => el.inBin).length}
                     </div>
                 </NavLink>
             </li>

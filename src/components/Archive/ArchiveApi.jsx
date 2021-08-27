@@ -1,8 +1,8 @@
 import React from 'react';
+import Archive from './Archive';
 import axios from 'axios';
-import Inbox from './Inbox';
 
-class InboxApi extends React.Component {
+class ArchiveApi extends React.Component {
 
     componentDidMount() {
         axios.get('http://localhost:8080/api/tasks')
@@ -17,12 +17,11 @@ class InboxApi extends React.Component {
 
     render() {
         return (
-            <Inbox tasks={this.props.tasks}
-                   darkTheme={this.props.darkTheme}
+            <Archive tasks={this.props.tasks}
+                     darkTheme={this.props.darkTheme}
             />
         )
     }
-
 }
 
-export default InboxApi
+export default ArchiveApi

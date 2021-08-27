@@ -9,7 +9,6 @@ import {
 
 const initialState = {
     tasks: [],
-    // binTasks: [],
 
     textarea: {
         value: '',
@@ -54,12 +53,6 @@ const TasksReducer = (state = initialState, action) => {
             return {
                 ...state,
                 binTasks: state.tasks.filter(el => el.id !== action.id)
-            }
-        case EMPTY_TRASH:
-            return {
-                ...state,
-                //tasks: state.tasks.filter(el => !el.inBin),
-                binTasks: [state.tasks.filter(el => el.inBin)]
             }
         case EDIT_TASK_TEXT:
             return {

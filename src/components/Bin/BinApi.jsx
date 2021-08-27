@@ -31,7 +31,6 @@ class BinApi extends React.Component {
                     .catch(error => {
                         console.log(error)
                     })
-                this.props.emptyTrash()
                 console.log(response)
             })
             .catch(error => {

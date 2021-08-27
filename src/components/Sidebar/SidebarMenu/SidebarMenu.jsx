@@ -38,7 +38,7 @@ const SidebarMenu = props => {
                         Сегодня
                     </div>
                     <div>
-                        {props.tasks.filter(el => el.category === 'today' && !el.inBin).length}
+                        {props.tasks.filter(el => el.category === 'today' && !el.inBin && !el.isDone).length}
                     </div>
                 </NavLink>
             </li>
@@ -57,7 +57,7 @@ const SidebarMenu = props => {
                     </div>
 
                     <div>
-                        {props.tasks.filter(el => el.category === 'archive').length}
+                        {props.tasks.filter(el => el.isDone).length}
                     </div>
                 </NavLink>
             </li>

@@ -3,7 +3,7 @@ import React from 'react';
 const Archive = props => {
 
     const displayTasks = () => {
-        const archiveTasks = props.tasks.filter(el => el.category === 'archive')
+        const archiveTasks = props.tasks.filter(el => el.isDone)
 
         if(archiveTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 

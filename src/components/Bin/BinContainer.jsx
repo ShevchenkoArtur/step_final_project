@@ -1,5 +1,6 @@
 import {connect} from 'react-redux';
-import Bin from './Bin';
+import {emptyTrash} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import BinApi from './BinApi';
 
 const mapStateToProps = state => {
     return {
@@ -9,9 +10,13 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    return {}
+    return {
+        emptyTrash: () => {
+            dispatch(emptyTrash())
+        }
+    }
 }
 
-const BinContainer = connect(mapStateToProps, mapDispatchToProps)(Bin)
+const BinContainer = connect(mapStateToProps, mapDispatchToProps)(BinApi)
 
 export default BinContainer

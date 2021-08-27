@@ -119,7 +119,7 @@ exports.delete = (req, res) => {
 // Delete all Tasks from the database.
 exports.deleteAll = (req, res) => {
     Task.destroy({
-        where: {},
+        where: {inBin: true},
         truncate: false
     })
         .then(nums => {

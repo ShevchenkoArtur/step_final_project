@@ -2,12 +2,13 @@ import {connect} from 'react-redux';
 import TodayApi from './TodayApi';
 import {
     editTaskText, findLaterTasks,
-    getTasks, getTodayDate, sortBy,
+    getTasks, getTodayDate,
 } from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
         tasks: state.tasksReducer.tasks,
+        todayTasks: state.tasksReducer.todayTasks,
         darkTheme: state.themeReducer.darkTheme,
     }
 }

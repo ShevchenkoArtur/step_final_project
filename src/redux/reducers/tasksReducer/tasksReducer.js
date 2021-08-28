@@ -2,12 +2,13 @@ import {
     ADD_TASK, CHANGE_PRIORITY,
     EDIT_TASK_TEXT, FIND_LATER_TASKS,
     GET_TASKS, GET_TODAY_DATE,
-    RESET_TEXTAREA, RESTORE_TASK, SORT_BY, UPDATE_CATEGORY_SELECT, UPDATE_SORT_SELECT,
+    RESET_TEXTAREA, RESTORE_TASK, SORT_ARR_BY, UPDATE_CATEGORY_SELECT, UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
 
 const initialState = {
     tasks: [],
+    todayTasks: [],
 
     textarea: {
         value: '',
@@ -18,13 +19,19 @@ const initialState = {
     },
 
     sortSelect: {
-        value: ''
+        highValue: 3,
+        mediumValue: 2,
+        lowValue: 1,
+        byPriority: 'byPriority',
+        backToPriority: 'backToPriority',
+        selectedValue: '',
+        value: 'byPriority'
     },
 
     priority: {
-        highValue: 1,
+        highValue: 3,
         mediumValue: 2,
-        lowValue: 3,
+        lowValue: 1,
         selectedValue: null
     },
 
@@ -43,6 +50,7 @@ const TasksReducer = (state = initialState, action) => {
             return {
                 ...state,
                 tasks: action.tasks,
+                todayTasks: action.tasks.filter(el => el.category === 'today' && !el.inBin && !el.isDone)
             }
         case FIND_LATER_TASKS:
             const getFormatDate = (date) => {
@@ -66,14 +74,22 @@ const TasksReducer = (state = initialState, action) => {
         case EDIT_TASK_TEXT:
             return {
                 ...state,
-                tasks: state.tasks.map(el => {
-                    if (el.id === action.id) {
-                        return {
-                            ...el,
-                            body: action.newValue
-                        }
-                    }
-                }),
+                // tasks: state.tasks.filter(el => {
+                //     if (el.category === 'today') {
+                //         return {
+                //             ...el,
+                //             body: action.newValue
+                //         }
+                //     }
+                // }),
+                // tasks: [...state.tasks, state.tasks.map(el => {
+                //     if(el.id === action.id) {
+                //         return {
+                //             ...el,
+                //             body: action.newValue
+                //         }
+                //     }
+                // })]
             }
         case UPDATE_CATEGORY_SELECT:
             return {
@@ -115,10 +131,20 @@ const TasksReducer = (state = initialState, action) => {
                     selectedValue: action.newValue
                 }
             }
-        case SORT_BY:
-            return {
-                ...state,
-                [action.arr]: [...state.action.arr].sort((a, b) => a.priority - b.priority)
+        case SORT_ARR_BY:
+            switch (action.sortBy) {
+                case 'byPriority':
+                    return {
+                        ...state,
+                        todayTasks: [...state.todayTasks].sort((a, b) => b.priority - a.priority)
+                    }
+                case 'backToPriority':
+                    return {
+                        ...state,
+                        todayTasks: [...state.todayTasks].sort((a, b) => a.priority - b.priority)
+                    }
+                default :
+                    return state
             }
         case ADD_TASK:
             if (state.textarea.value !== '') {

@@ -2,7 +2,7 @@ import {
     ADD_TASK, CHANGE_PRIORITY,
     EDIT_TASK_TEXT, FIND_LATER_TASKS,
     GET_TASKS, GET_TODAY_DATE,
-    RESET_TEXTAREA, RESTORE_TASK, SORT_BY, UPDATE_CATEGORY_SELECT,
+    RESET_TEXTAREA, RESTORE_TASK, SORT_ARR_BY, UPDATE_CATEGORY_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
 
@@ -16,5 +16,5 @@ export const editTaskText = (id, newValue) => ({type: EDIT_TASK_TEXT, id, newVal
 export const getTodayDate = (date) => ({type: GET_TODAY_DATE, date})
 export const findLaterTasks = () => ({type: FIND_LATER_TASKS})
 export const changePriority = (newValue) => ({type: CHANGE_PRIORITY, newValue})
-export const sortBy = (sortBy, arr) => ({type: SORT_BY, sortBy, arr})
+export const sortArrBy = (sortBy) => ({type: SORT_ARR_BY, sortBy})
 export const updateSortSelect = newValue => ({type: UPDATE_CATEGORY_SELECT, newValue})

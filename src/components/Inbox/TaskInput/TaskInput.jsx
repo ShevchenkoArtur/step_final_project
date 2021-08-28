@@ -29,9 +29,10 @@ const TaskInput = props => {
             </select>
 
             <div onClick={changePriority}>
-                <label>1<input name='priority' type="radio" value={props.priority.highValue}/></label>
+                Приоритет<br />
+                <label>3<input name='priority' type="radio" value={props.priority.highValue}/></label>
                 <label>2<input name='priority' type="radio" value={props.priority.mediumValue}/></label>
-                <label>3<input name='priority' type="radio" value={props.priority.lowValue}/></label>
+                <label>1<input name='priority' type="radio" value={props.priority.lowValue}/></label>
             </div>
 
             <button onClick={addTask}>Добавить</button>

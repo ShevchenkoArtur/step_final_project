@@ -19,6 +19,7 @@ class ArchiveApi extends React.Component {
         return (
             <Archive tasks={this.props.tasks}
                      darkTheme={this.props.darkTheme}
+                     getTasks={this.props.getTasks}
             />
         )
     }

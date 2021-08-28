@@ -36,11 +36,10 @@ const Today = props => {
     }
 
     const displayTasks = () => {
-        const todayTasks = props.tasks.filter(el => el.category === 'today' && !el.inBin && !el.isDone)
 
-        if (todayTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+        if (props.todayTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
-        return todayTasks.map((el) =>
+        return props.todayTasks.map((el) =>
             <TaskApi key={el.id}
                      task={el}
                      editTaskText={props.editTaskText}

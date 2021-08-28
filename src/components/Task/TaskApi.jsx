@@ -13,7 +13,8 @@ class TaskApi extends React.Component {
 
     moveTaskIntoBin() {
         const data = {
-            inBin: true
+            inBin: true,
+            isDone: false
         }
 
         axios.put(`http://localhost:8080/api/tasks/${this.props.task.id}`, data)

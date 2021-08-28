@@ -11,7 +11,7 @@ const mapStateToProps = state => {
         textarea: state.tasksReducer.textarea,
         categorySelect: state.tasksReducer.categorySelect,
         darkTheme: state.themeReducer.darkTheme,
-        priority: state.tasksReducer.priority
+        priority: state.tasksReducer.priority,
     }
 }
 
@@ -31,7 +31,7 @@ const mapDispatchToProps = dispatch => {
 
         addTask: (id) => {
             dispatch(addTask(id))
-        }
+        },
     }
 }
 

@@ -12,7 +12,6 @@ const Sidebar = props => {
             <SidebarHeader darkTheme={props.darkTheme}/>
             <SidebarMenu darkTheme={props.darkTheme}
                          tasks={props.tasks}
-                         binTasks={props.binTasks}
             />
         </aside>
     )

@@ -1,4 +1,5 @@
 import React from 'react';
+import TaskApi from "../Task/TaskApi";
 
 const Archive = props => {
 
@@ -7,12 +8,13 @@ const Archive = props => {
 
         if(archiveTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
-        return archiveTasks.map((el, idx) =>
-            <div key={idx}>
-                <p>id: {el.id}</p>
-                <p>body: {el.body}</p>
-                <p>category: {el.category}</p>
-            </div>)
+        return archiveTasks.map((el) =>
+            <TaskApi key={el.id}
+                     task={el}
+                     editTaskText={props.editTaskText}
+                     getTasks={props.getTasks}
+            />
+        )
     }
 
     return (

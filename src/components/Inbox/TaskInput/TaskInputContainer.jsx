@@ -1,7 +1,6 @@
 import {connect} from 'react-redux';
 import {
-    addTask,
-    changePriority, updateCategorySelect,
+    addTask, updateCategorySelect, updatePrioritySelect,
     updateTextarea
 } from '../../../redux/reducers/tasksReducer/tasksActionCreators';
 import TaskInputApi from './TaskInputApi';
@@ -10,8 +9,8 @@ const mapStateToProps = state => {
     return {
         textarea: state.tasksReducer.textarea,
         categorySelect: state.tasksReducer.categorySelect,
+        prioritySelect: state.tasksReducer.prioritySelect,
         darkTheme: state.themeReducer.darkTheme,
-        priority: state.tasksReducer.priority,
     }
 }
 
@@ -25,8 +24,8 @@ const mapDispatchToProps = dispatch => {
             dispatch(updateCategorySelect(newValue))
         },
 
-        changePriority: newValue => {
-            dispatch(changePriority(newValue))
+        updatePrioritySelect: newValue => {
+            dispatch(updatePrioritySelect(newValue))
         },
 
         addTask: (id) => {

@@ -5,6 +5,8 @@ const mapStateToProps = state => {
     return {
         darkTheme: state.themeReducer.darkTheme,
         tasks: state.tasksReducer.tasks,
+        todayTasks: state.tasksReducer.todayTasks,
+        planTasks: state.tasksReducer.planTasks,
     }
 }
 

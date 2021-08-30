@@ -17,6 +17,9 @@ module.exports = (sequelize, Sequelize) => {
         },
         priority: {
             type: Sequelize.STRING
+        },
+        upcomingDate: {
+            type: Sequelize.STRING
         }
     });
 

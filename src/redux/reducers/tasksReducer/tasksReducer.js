@@ -1,14 +1,19 @@
 import {
     ADD_TASK,
-    EDIT_TASK_TEXT, FIND_LATER_TASKS,
-    GET_TASKS, GET_TODAY_DATE,
-    RESET_TEXTAREA, RESTORE_TASK, SORT_ARR_BY, UPDATE_CATEGORY_SELECT, UPDATE_PRIORITY_SELECT, UPDATE_SORT_SELECT,
+    GET_TASKS,
+    RESTORE_TASK,
+    SORT_ARR_BY,
+    TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
+    UPDATE_CATEGORY_SELECT,
+    UPDATE_PRIORITY_SELECT,
+    UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
 
 const initialState = {
     tasks: [],
     todayTasks: [],
+    planTasks: [],
 
     textarea: {
         value: '',
@@ -23,64 +28,31 @@ const initialState = {
     },
 
     sortSelect: {
-      value: ''
+        value: ''
     },
-    
-    todayDate: null
+
+    calendar: {
+        todayDate: new Date(),
+        isOpen: false,
+        value: new Date(),
+        weekStart: 1,
+    },
 }
 
 
 const TasksReducer = (state = initialState, action) => {
     switch (action.type) {
-        case GET_TODAY_DATE:
-            return {
-                ...state,
-                todayDate: action.date,
-            }
         case GET_TASKS:
             return {
                 ...state,
                 tasks: action.tasks,
-                todayTasks: action.tasks.filter(el => el.category === 'today' && !el.inBin && !el.isDone)
+                todayTasks: action.tasks.filter(el => el.createdAt >= el.upcomingDate && !el.inBin && !el.isDone),
+                planTasks: action.tasks.filter(el => el.upcomingDate > el.createdAt)
             }
-        case FIND_LATER_TASKS:
-            const getFormatDate = (date) => {
-                let [year, month, another] = date.split('-')
-                let [day] = another.split('T')
-                return new Date(year, month - 1, day)
-            }
-            state.tasks.map(el => {
-                if (state.todayDate < getFormatDate(el.createdAt)) {
-                    return {
-                        ...el,
-                        isLate: true
-                    }
-                }
-            })
         case RESTORE_TASK:
             return {
                 ...state,
                 binTasks: state.tasks.filter(el => el.id !== action.id)
-            }
-        case EDIT_TASK_TEXT:
-            return {
-                ...state,
-                // tasks: state.tasks.filter(el => {
-                //     if (el.category === 'today') {
-                //         return {
-                //             ...el,
-                //             body: action.newValue
-                //         }
-                //     }
-                // }),
-                // tasks: [...state.tasks, state.tasks.map(el => {
-                //     if(el.id === action.id) {
-                //         return {
-                //             ...el,
-                //             body: action.newValue
-                //         }
-                //     }
-                // })]
             }
         case UPDATE_CATEGORY_SELECT:
             return {
@@ -114,14 +86,6 @@ const TasksReducer = (state = initialState, action) => {
                     value: action.newValue
                 }
             }
-        case RESET_TEXTAREA:
-            return {
-                ...state,
-                textarea: {
-                    ...state.textarea,
-                    value: ''
-                }
-            }
         case SORT_ARR_BY:
             switch (action.sortBy) {
                 case 'byPriority':
@@ -146,8 +110,9 @@ const TasksReducer = (state = initialState, action) => {
                         {
                             id: action.id,
                             body: state.textarea.value,
-                            category: state.categorySelect.value,
-                            priority: state.prioritySelect.value,
+                            category: state.categorySelect.value ? state.categorySelect.value : 'today',
+                            priority: state.prioritySelect.value ? state.prioritySelect.value : null,
+                            upcomingDate: state.calendar.value ? state.calendar.value : state.calendar.todayDate,
                         }
                     ],
                     textarea: {
@@ -158,6 +123,22 @@ const TasksReducer = (state = initialState, action) => {
                         ...state.priority,
                         selectedValue: null
                     }
+                }
+            }
+        case TOGGLE_CALENDAR:
+            return {
+                ...state,
+                calendar: {
+                    ...state.calendar,
+                    isOpen: !state.calendar.isOpen
+                }
+            }
+        case UPDATE_CALENDAR_VALUE:
+            return {
+                ...state,
+                calendar: {
+                    ...state.calendar,
+                    value: action.newValue
                 }
             }
         default:

@@ -1,3 +1,21 @@
+@import './src/scss/utils/variables';
+
+.taskBlock {
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.taskBlockDark {
+  background-color: $sidebar-background-dark;
+}
+
+.taskBlockLight {
+  background-color: #eef2f9;
+}
+
 .priorityCheckbox {
   position: absolute;
   z-index: -1;

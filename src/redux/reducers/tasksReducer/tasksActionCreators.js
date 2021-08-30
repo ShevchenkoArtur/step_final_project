@@ -1,8 +1,16 @@
 import {
     ADD_TASK,
-    EDIT_TASK_TEXT, FIND_LATER_TASKS,
-    GET_TASKS, GET_TODAY_DATE,
-    RESET_TEXTAREA, RESTORE_TASK, SORT_ARR_BY, UPDATE_CATEGORY_SELECT, UPDATE_PRIORITY_SELECT, UPDATE_SORT_SELECT,
+    EDIT_TASK_TEXT,
+    FIND_LATER_TASKS,
+    GET_TASKS,
+    GET_TODAY_DATE,
+    RESET_TEXTAREA,
+    RESTORE_TASK,
+    SORT_ARR_BY,
+    TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
+    UPDATE_CATEGORY_SELECT,
+    UPDATE_PRIORITY_SELECT,
+    UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
 } from './tasksActionConstatnts';
 
@@ -18,3 +26,5 @@ export const editTaskText = (id, newValue) => ({type: EDIT_TASK_TEXT, id, newVal
 export const getTodayDate = (date) => ({type: GET_TODAY_DATE, date})
 export const findLaterTasks = () => ({type: FIND_LATER_TASKS})
 export const sortArrBy = (sortBy) => ({type: SORT_ARR_BY, sortBy})
+export const toggleCalendar = () => ({type: TOGGLE_CALENDAR})
+export const updateCalendarValue = newValue => ({type: UPDATE_CALENDAR_VALUE, newValue})

@@ -6,8 +6,6 @@ const Today = props => {
     const getTodayDate = () => {
         const date = new Date()
 
-        props.getTodayDate(date)
-
         const daysOfWeek = {
             0: 'Вс',
             1: 'Пн',
@@ -42,8 +40,8 @@ const Today = props => {
         return props.todayTasks.map((el) =>
             <TaskApi key={el.id}
                      task={el}
-                     editTaskText={props.editTaskText}
                      getTasks={props.getTasks}
+                     darkTheme={props.darkTheme}
             />)
     }
 
@@ -58,8 +56,6 @@ const Today = props => {
                 <SortContainer/>
             </div>
 
-
-            {/*{props.findLaterTasks()}*/}
             {displayTasks()}
         </div>
     )

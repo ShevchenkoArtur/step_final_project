@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Plans from './Plans';
 import axios from 'axios';
-import Inbox from './Inbox';
 
-class InboxApi extends React.Component {
+class PlansApi extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:8080/api/tasks')
@@ -17,12 +17,13 @@ class InboxApi extends React.Component {
 
     render() {
         return (
-            <Inbox
-                   darkTheme={this.props.darkTheme}
+            <Plans
+                planTasks={this.props.planTasks}
+                getTasks={this.props.getTasks}
+                darkTheme={this.props.darkTheme}
             />
-        )
+        );
     }
-
 }
 
-export default InboxApi
+export default PlansApi;

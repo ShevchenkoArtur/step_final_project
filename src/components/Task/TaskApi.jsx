@@ -74,6 +74,7 @@ class TaskApi extends React.Component {
                 onEditTask={this.onEditTask}
                 task={this.props.task}
                 editTaskText={this.props.editTaskText}
+                darkTheme={this.props.darkTheme}
             />
         )
     }

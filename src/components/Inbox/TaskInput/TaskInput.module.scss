@@ -9,6 +9,7 @@
 .addTaskBlockDark {
   background-color: $sidebar-background-dark;
 }
+
 .addTaskBlockLight {
   background-color: #eef2f9;
 }
@@ -16,7 +17,7 @@
 .select {
 }
 
-.textarea {
+:global(.textarea) {
   width: 100%;
   outline: none;
   resize: none;
@@ -25,10 +26,10 @@
   border: 0;
 }
 
-.textareaColorLight {
+:global(.textareaColorLight) {
   color: $text-color-light;
 }
 
-.textareaColorDark {
+:global(.textareaColorDark) {
   color: $text-color-dark;
 }

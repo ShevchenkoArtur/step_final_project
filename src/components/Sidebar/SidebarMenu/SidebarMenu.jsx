@@ -1,7 +1,6 @@
 import React from 'react';
 import style from '../Sidebar.module.scss';
 import {NavLink} from 'react-router-dom';
-import Projects from './Projects/Projects';
 
 const SidebarMenu = props => {
     return (
@@ -17,10 +16,7 @@ const SidebarMenu = props => {
                             style={{paddingRight: '10px'}}
                         >
                         </span>
-                        Входящие
-                    </div>
-                    <div>
-                        {props.tasks.filter(el => el.category === 'inbox').length}
+                        Добавить задачу
                     </div>
                 </NavLink>
             </li>
@@ -38,7 +34,25 @@ const SidebarMenu = props => {
                         Сегодня
                     </div>
                     <div>
-                        {props.tasks.filter(el => el.category === 'today' && !el.inBin && !el.isDone).length}
+                        {props.tasks.filter(el => el.createdAt >= el.upcomingDate && !el.inBin && !el.isDone).length}
+                    </div>
+                </NavLink>
+            </li>
+            <li className={`${style.item}`}>
+                <NavLink
+                    className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
+                    to="/plans"
+                >
+                    <div>
+                        <span
+                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-star`}
+                            style={{paddingRight: '10px'}}
+                        >
+                        </span>
+                        Планы
+                    </div>
+                    <div>
+                        {props.tasks.filter(el => el.upcomingDate > el.createdAt).length}
                     </div>
                 </NavLink>
             </li>
@@ -79,9 +93,6 @@ const SidebarMenu = props => {
                         {props.tasks.filter(el => el.inBin).length}
                     </div>
                 </NavLink>
-            </li>
-            <li className={`${style.item}`}>
-               <Projects />
             </li>
         </ul>
     );

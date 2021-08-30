@@ -7,8 +7,9 @@ const Task = (props) => {
         let id = props.task.id
         props.editTaskText(id, e.target.value)
     }
+
     return (
-        <div>
+        <div className={`${style.taskBlock} ${props.darkTheme ? style.taskBlockLight : style.taskBlockDark}`}>
             <label>
                <span className={
                    `${style.myCheckbox}
@@ -26,9 +27,8 @@ const Task = (props) => {
                </span>
                 <input type="checkbox" className={style.priorityCheckbox} onClick={props.moveTaskIntoArchive}/>
             </label>
-            {` id: ${props.task.id} priority: ${props.task.priority} `}
 
-            <textarea value={props.task.body} onChange={editTaskText}/>
+            <textarea className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`} value={props.task.body} onChange={editTaskText}/>
 
             <button onClick={props.moveTaskIntoBin}>
                 <span className="icon-bin"></span>

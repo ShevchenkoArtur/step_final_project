@@ -20,6 +20,7 @@ exports.create = (req, res) => {
         isLate: req.body.isLate ? req.body.isLate : false,
         isDone: req.body.isDone ? req.body.isDone : false,
         priority: req.body.priority,
+        upcomingDate: req.body.upcomingDate,
     };
 
     // Save Task in the database

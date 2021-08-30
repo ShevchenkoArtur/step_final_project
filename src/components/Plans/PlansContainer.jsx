@@ -1,21 +1,22 @@
 import {connect} from 'react-redux';
+import PlansApi from './PlansApi';
 import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
-import InboxApi from './InboxApi';
 
 const mapStateToProps = state => {
     return {
-        darkTheme: state.themeReducer.darkTheme
+        darkTheme: state.tasksReducer.darkTheme,
+        planTasks: state.tasksReducer.planTasks
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        getTasks: (tasks) => {
+        getTasks: tasks => {
             dispatch(getTasks(tasks))
         }
     }
 }
 
-const InboxContainer = connect(mapStateToProps, mapDispatchToProps)(InboxApi)
+const PlansContainer = connect(mapStateToProps, mapDispatchToProps)(PlansApi)
 
-export default InboxContainer
+export default PlansContainer

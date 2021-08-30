@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {getTasks, restoreTask} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 import BinApi from './BinApi';
 
 const mapStateToProps = state => {
@@ -12,9 +12,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        restoreTask: (id) => {
-          dispatch(restoreTask(id))
-        },
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
         }

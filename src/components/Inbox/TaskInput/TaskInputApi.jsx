@@ -20,6 +20,14 @@ class TaskInputApi extends React.Component {
         axios.post('http://localhost:8080/api/tasks', data)
             .then(response => {
                 this.props.addTask(response.data.id)
+                axios.get('http://localhost:8080/api/tasks')
+                    .then(response => {
+                        this.props.getTasks(response.data)
+                        console.log(response)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
                 console.log(error)

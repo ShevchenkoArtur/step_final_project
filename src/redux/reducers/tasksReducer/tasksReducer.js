@@ -1,7 +1,6 @@
 import {
     ADD_TASK,
     GET_TASKS,
-    RESTORE_TASK,
     SORT_ARR_BY,
     TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
     UPDATE_CATEGORY_SELECT,
@@ -47,12 +46,7 @@ const TasksReducer = (state = initialState, action) => {
                 ...state,
                 tasks: action.tasks,
                 todayTasks: action.tasks.filter(el => el.createdAt >= el.upcomingDate && !el.inBin && !el.isDone),
-                planTasks: action.tasks.filter(el => el.upcomingDate > el.createdAt)
-            }
-        case RESTORE_TASK:
-            return {
-                ...state,
-                binTasks: state.tasks.filter(el => el.id !== action.id)
+                planTasks: action.tasks.filter(el => el.upcomingDate > el.createdAt && !el.inBin && !el.isDone)
             }
         case UPDATE_CATEGORY_SELECT:
             return {
@@ -138,7 +132,8 @@ const TasksReducer = (state = initialState, action) => {
                 ...state,
                 calendar: {
                     ...state.calendar,
-                    value: action.newValue
+                    value: action.newValue,
+                    isOpen: false
                 }
             }
         default:

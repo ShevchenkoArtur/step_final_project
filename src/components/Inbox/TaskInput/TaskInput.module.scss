@@ -3,7 +3,6 @@
 .addTaskBlock {
   border-radius: 10px;
   padding: 20px;
-  display: flex;
 }
 
 .addTaskBlockDark {
@@ -12,6 +11,14 @@
 
 .addTaskBlockLight {
   background-color: #eef2f9;
+}
+
+.firstRow {
+  display: flex;
+}
+
+.secondRow {
+  display: flex;
 }
 
 .select {

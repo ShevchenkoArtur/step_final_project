@@ -52,7 +52,7 @@ const SidebarMenu = props => {
                         Планы
                     </div>
                     <div>
-                        {props.tasks.filter(el => el.upcomingDate > el.createdAt).length}
+                        {props.tasks.filter(el => el.upcomingDate > el.createdAt && !el.inBin && !el.isDone).length}
                     </div>
                 </NavLink>
             </li>

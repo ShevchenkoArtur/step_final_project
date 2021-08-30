@@ -1,5 +1,5 @@
 import React from 'react';
-import TaskApi from "../Task/TaskApi";
+import style from '../Task/Task.module.scss';
 
 const Archive = props => {
 
@@ -9,11 +9,27 @@ const Archive = props => {
         if(archiveTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return archiveTasks.map((el) =>
-            <TaskApi key={el.id}
-                     task={el}
-                     editTaskText={props.editTaskText}
-                     getTasks={props.getTasks}
-            />
+            <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>
+                <label>
+               <span className={
+                   `myCheckbox
+                    ${el.priority === '3'
+                       ?
+                       style.highPriority
+                       :
+                       el.priority === '2'
+                           ?
+                           style.mediumPriority
+                           :
+                           el.priority === '1' ? style.lowPriority : ''}
+                    `}
+               >
+               </span>
+                    <input type="checkbox" className={style.priorityCheckbox}/>
+                </label>
+
+                <textarea className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`} value={el.body} />
+            </div>
         )
     }
 

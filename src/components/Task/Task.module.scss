@@ -1,6 +1,6 @@
 @import './src/scss/utils/variables';
 
-.taskBlock {
+:global(.taskBlock) {
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -8,11 +8,11 @@
   margin-bottom: 20px;
 }
 
-.taskBlockDark {
+:global(.taskBlockDark) {
   background-color: $sidebar-background-dark;
 }
 
-.taskBlockLight {
+:global(.taskBlockLight) {
   background-color: #eef2f9;
 }
 
@@ -22,7 +22,7 @@
   opacity: 0;
 }
 
-.myCheckbox {
+:global(.myCheckbox) {
   display: inline-flex;
   align-items: center;
   user-select: none;

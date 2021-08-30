@@ -11,7 +11,6 @@ const Bin = props => {
                 <p>body: {el.body}</p>
                 <p>category: {el.category}</p>
                 <p>inBin: {el.inBin}</p>
-                <button onClick={() => props.onRestoreTask(el.id)}>Восстановить</button>
             </div>)
     }
 

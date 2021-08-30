@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {
-    addTask, toggleCalendar, updateCalendarValue, updateCategorySelect, updatePrioritySelect,
+    addTask, getTasks, toggleCalendar, updateCalendarValue, updateCategorySelect, updatePrioritySelect,
     updateTextarea
 } from '../../../redux/reducers/tasksReducer/tasksActionCreators';
 import TaskInputApi from './TaskInputApi';
@@ -39,6 +39,10 @@ const mapDispatchToProps = dispatch => {
 
         updateCalendarValue: newValue => {
             dispatch(updateCalendarValue(newValue))
+        },
+
+        getTasks: tasks => {
+            dispatch(getTasks(tasks))
         }
     }
 }

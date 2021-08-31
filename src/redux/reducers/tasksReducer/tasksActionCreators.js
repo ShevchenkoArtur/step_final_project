@@ -6,7 +6,6 @@ import {
     GET_TODAY_DATE,
     SORT_ARR_BY,
     TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
-    UPDATE_CATEGORY_SELECT,
     UPDATE_PRIORITY_SELECT,
     UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
@@ -14,7 +13,6 @@ import {
 
 export const addTask = (id) => ({type: ADD_TASK, id})
 export const updateTextarea = newValue => ({type: UPDATE_TEXTAREA, newValue})
-export const updateCategorySelect = newValue => ({type: UPDATE_CATEGORY_SELECT, newValue})
 export const updatePrioritySelect = newValue => ({type: UPDATE_PRIORITY_SELECT, newValue})
 export const updateSortSelect = newValue => ({type: UPDATE_SORT_SELECT, newValue})
 export const getTasks = (tasks) => ({type: GET_TASKS, tasks})

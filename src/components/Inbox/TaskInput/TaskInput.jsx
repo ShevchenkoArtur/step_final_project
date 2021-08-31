@@ -5,7 +5,6 @@ import style from './TaskInput.module.scss'
 const TaskInput = props => {
 
     const updateTextarea = e => props.updateTextarea(e.target.value)
-    const updateCategorySelect = e => props.updateCategorySelect(e.target.value)
     const updatePrioritySelect = e => props.updatePrioritySelect(e.target.value)
     const addTask = () => props.addTask()
 
@@ -45,50 +44,43 @@ const TaskInput = props => {
     return (
         <div className={`${style.addTaskBlock} ${props.darkTheme ? style.addTaskBlockLight : style.addTaskBlockDark}`}>
             <div className={`${style.firstRow}`}>
-                <textarea className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`}
-                          placeholder='Новая задача' value={props.textarea.value}
-                          onChange={updateTextarea}
-                />
+                           <textarea
+                               className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`}
+                               placeholder='Новая задача' value={props.textarea.value}
+                               onChange={updateTextarea}
+                           />
+                <div className={style.firstColumn}>
+                    <select className={style.select} value={props.prioritySelect.value} onChange={updatePrioritySelect}>
+                        <option value="priority" selected hidden>Приоритет</option>
+                        <option value="3">Высокий</option>
+                        <option value="2">Средний</option>
+                        <option value="1">Низкий</option>
+                        <option value="0">Обычный</option>
+                    </select>
 
-                <button onClick={addTask}>Добавить</button>
+                    <div>
+                        <div className={style.dateBtns}>
+                            <button className={style.dateBtn} onClick={props.toggleCalendar}>Дата</button>
+                            {` ${props.calendar.value ? formatDate(props.calendar.value) : formatDate(props.calendar.todayDate)}`}
+                        </div>
+                        {
+                            props.calendar.isOpen
+                                ?
+                                <CalendarComponent
+                                    className={style.dateCalendar}
+                                    change={updateDate}
+                                    value={props.calendar.value}
+                                    firstDayOfWeek={props.calendar.weekStart}
+                                />
+                                :
+                                ''
+                        }
+                    </div>
+                </div>
             </div>
 
             <div className={`${style.secondRow}`}>
-                <select value={props.prioritySelect.value} onChange={updatePrioritySelect}>
-                    <option value="priority" selected hidden>Приоритет</option>
-                    <option value="3">Флаг1</option>
-                    <option value="2">Флаг2</option>
-                    <option value="1">Флаг3</option>
-                    <option value="0">Обычный</option>
-                </select>
-
-                <select className={style.select}
-                        value={props.categorySelect.value}
-                        onChange={updateCategorySelect}
-                >
-                    <option value="category" selected hidden>Категории</option>
-                    <option value="today">Сегодня</option>
-                </select>
-
-                <div>
-                    <div>
-                        <button onClick={props.toggleCalendar}>Дата</button>
-                        {` ${props.calendar.value ? formatDate(props.calendar.value) : formatDate(props.calendar.todayDate)}`}
-                    </div>
-
-
-                    {
-                        props.calendar.isOpen
-                            ?
-                            <CalendarComponent
-                                change={updateDate}
-                                value={props.calendar.value}
-                                firstDayOfWeek={props.calendar.weekStart}
-                            />
-                            :
-                            ''
-                    }
-                </div>
+                <button onClick={addTask}>Добавить</button>
             </div>
         </div>
     );

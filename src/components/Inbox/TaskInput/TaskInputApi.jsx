@@ -12,7 +12,6 @@ class TaskInputApi extends React.Component {
     addTask() {
         const data = {
             body: this.props.textarea.value,
-            category: this.props.categorySelect.value ? this.props.categorySelect.value : 'today',
             priority: this.props.prioritySelect.value ? this.props.prioritySelect.value : null,
             upcomingDate: this.props.calendar.value ? this.props.calendar.value: this.props.calendar.todayDate,
         }
@@ -38,10 +37,8 @@ class TaskInputApi extends React.Component {
         return (
             <TaskInput addTask={this.addTask}
                        textarea={this.props.textarea}
-                       categorySelect={this.props.categorySelect}
                        prioritySelect={this.props.prioritySelect}
                        updateTextarea={this.props.updateTextarea}
-                       updateCategorySelect={this.props.updateCategorySelect}
                        updatePrioritySelect={this.props.updatePrioritySelect}
                        darkTheme={this.props.darkTheme}
                        calendar={this.props.calendar}

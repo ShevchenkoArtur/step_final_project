@@ -3,7 +3,6 @@ import {
     GET_TASKS,
     SORT_ARR_BY,
     TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
-    UPDATE_CATEGORY_SELECT,
     UPDATE_PRIORITY_SELECT,
     UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
@@ -15,10 +14,6 @@ const initialState = {
     planTasks: [],
 
     textarea: {
-        value: '',
-    },
-
-    categorySelect: {
         value: '',
     },
 
@@ -48,14 +43,6 @@ const TasksReducer = (state = initialState, action) => {
                 todayTasks: action.tasks.filter(el => el.createdAt >= el.upcomingDate && !el.inBin && !el.isDone),
                 planTasks: action.tasks.filter(el => el.upcomingDate > el.createdAt && !el.inBin && !el.isDone)
             }
-        case UPDATE_CATEGORY_SELECT:
-            return {
-                ...state,
-                categorySelect: {
-                    ...state.categorySelect,
-                    value: action.newValue
-                }
-            }
         case UPDATE_PRIORITY_SELECT:
             return {
                 ...state,
@@ -69,7 +56,7 @@ const TasksReducer = (state = initialState, action) => {
                 ...state,
                 sortSelect: {
                     ...state.sortSelect,
-                    value: action.new
+                    value: action.newValue
                 }
             }
         case UPDATE_TEXTAREA:
@@ -104,7 +91,6 @@ const TasksReducer = (state = initialState, action) => {
                         {
                             id: action.id,
                             body: state.textarea.value,
-                            category: state.categorySelect.value ? state.categorySelect.value : 'today',
                             priority: state.prioritySelect.value ? state.prioritySelect.value : null,
                             upcomingDate: state.calendar.value ? state.calendar.value : state.calendar.todayDate,
                         }

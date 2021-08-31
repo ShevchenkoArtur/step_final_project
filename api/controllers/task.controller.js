@@ -15,7 +15,6 @@ exports.create = (req, res) => {
     // Create a Task
     const task = {
         body: req.body.body,
-        category: req.body.category,
         inBin: req.body.inBin ? req.body.inBin : false,
         isLate: req.body.isLate ? req.body.isLate : false,
         isDone: req.body.isDone ? req.body.isDone : false,

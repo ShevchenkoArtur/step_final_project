@@ -3,9 +3,6 @@ module.exports = (sequelize, Sequelize) => {
         body: {
             type: Sequelize.STRING
         },
-        category: {
-            type: Sequelize.STRING
-        },
         inBin: {
             type: Sequelize.BOOLEAN
         },

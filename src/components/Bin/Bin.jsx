@@ -22,7 +22,7 @@ const Bin = props => {
                    Корзина
                </h1>
 
-               <button onClick={props.onDeleteAllTasks}>Удалить все</button>
+               <button className='button' onClick={props.onDeleteAllTasks}>Удалить все</button>
            </div>
 
             {

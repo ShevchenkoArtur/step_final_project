@@ -80,7 +80,9 @@ const TaskInput = props => {
             </div>
 
             <div className={`${style.secondRow}`}>
-                <button onClick={addTask}>Добавить</button>
+                <button className='button' onClick={addTask}>
+                    <span className={`${style.iconPlus} iconPlusDark icon-plus`}></span>
+                </button>
             </div>
         </div>
     );

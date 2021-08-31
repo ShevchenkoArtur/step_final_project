@@ -37,32 +37,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-bin:before {
+.icon-square:before {
   content: "\e900";
 }
-
-.icon-archive:before {
+.icon-check:before {
   content: "\e901";
 }
-
-.icon-theme:before {
+.icon-flag:before {
+  content: "\e90a";
+}
+.icon-plus:before {
   content: "\e902";
 }
-
-.icon-star:before {
+.icon-bin:before {
   content: "\e903";
 }
-
-.icon-search:before {
+.icon-archive:before {
   content: "\e904";
 }
-
-.icon-calendar:before {
+.icon-theme:before {
   content: "\e905";
 }
-
-.icon-inbox:before {
+.icon-star:before {
   content: "\e906";
+}
+.icon-search:before {
+  content: "\e907";
+}
+.icon-calendar:before {
+  content: "\e908";
+}
+.icon-inbox:before {
+  content: "\e909";
 }
 
 .iconSidebarDark {
@@ -71,6 +77,14 @@ body {
 
 .iconSidebarLight {
   color: $sidebar-icon-light;
+}
+
+.iconPlusDark {
+  color: #4f6d7f;
+
+  &:hover {
+    color: #8099a8;
+  }
 }
 
 @import './scss/main';

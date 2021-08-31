@@ -20,7 +20,7 @@ const Plans = (props) => {
         <div>
             <div>
                 <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-star"></span>
+                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-calendar"></span>
                     Планы <span style={{fontSize: '15px'}}></span>
                 </h1>
 

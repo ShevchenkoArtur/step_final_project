@@ -13,7 +13,7 @@
 }
 
 :global(.taskBlockLight) {
-  background-color: #eef2f9;
+  background-color: #dedede;
 }
 
 .priorityCheckbox {
@@ -22,42 +22,20 @@
   opacity: 0;
 }
 
-:global(.myCheckbox) {
-  display: inline-flex;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-
-  &:before {
-    content: '';
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    flex-shrink: 0;
-    flex-grow: 0;
-    border: 1px solid #adb5bd;
-    border-radius: 0.25em;
-    margin-right: 0.5em;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 50% 50%;
-  }
-}
-
 .highPriority {
   &:before {
-    border: 1px solid red;
+    color: red;
   }
 }
 
 .mediumPriority {
   &:before {
-    border: 1px solid orange;
+    color: orange;
   }
 }
 
 .lowPriority {
   &:before {
-    border: 1px solid blue;
+    color: blue;
   }
 }

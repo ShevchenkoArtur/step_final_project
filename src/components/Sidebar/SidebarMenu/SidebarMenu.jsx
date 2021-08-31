@@ -45,7 +45,7 @@ const SidebarMenu = props => {
                 >
                     <div>
                         <span
-                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-star`}
+                            className={`${props.darkTheme ? 'iconSidebarLight' : 'iconSidebarDark'} icon-calendar`}
                             style={{paddingRight: '10px'}}
                         >
                         </span>

@@ -11,18 +11,7 @@ const Archive = props => {
         return archiveTasks.map((el) =>
             <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>
                 <label>
-               <span className={
-                   `myCheckbox
-                    ${el.priority === '3'
-                       ?
-                       style.highPriority
-                       :
-                       el.priority === '2'
-                           ?
-                           style.mediumPriority
-                           :
-                           el.priority === '1' ? style.lowPriority : ''}
-                    `}
+               <span style={{fontSize: '25px', color: 'green'}} className={`icon-check`}
                >
                </span>
                     <input type="checkbox" className={style.priorityCheckbox}/>

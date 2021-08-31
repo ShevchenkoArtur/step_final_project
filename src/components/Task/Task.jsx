@@ -36,8 +36,8 @@ const Task = (props) => {
         <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>
             {`${formatDate(new Date(props.task.upcomingDate))}`}
             <label>
-               <span className={
-                   `myCheckbox
+               <span style={{fontSize: '25px'}} className={
+                   `icon-square
                     ${props.task.priority === '3' 
                        ? 
                        style.highPriority 

@@ -1,5 +1,5 @@
 import {
-    ADD_TASK,
+    ADD_TASK, EDIT_TASK_TEXT,
     GET_TASKS,
     SORT_ARR_BY,
     TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
@@ -42,6 +42,20 @@ const TasksReducer = (state = initialState, action) => {
                 tasks: action.tasks,
                 todayTasks: action.tasks.filter(el => el.createdAt >= el.upcomingDate && !el.inBin && !el.isDone),
                 planTasks: action.tasks.filter(el => el.upcomingDate > el.createdAt && !el.inBin && !el.isDone)
+            }
+        case EDIT_TASK_TEXT:
+            return {
+                ...state,
+                tasks: state.tasks.map(el => {
+                    if(el.id === action.id) {
+                        return {
+                            ...el,
+                            body: action.newValue
+                        }
+                    }
+
+                    return el
+                })
             }
         case UPDATE_PRIORITY_SELECT:
             return {

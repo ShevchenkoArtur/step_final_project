@@ -3,6 +3,8 @@ import style from './Task.module.scss'
 
 const Task = (props) => {
 
+    const updateValue = (e) => props.onEditTask(props.task.id, e.target.value)
+
     const formatDate = (date) => {
 
         const daysOfWeek = {
@@ -34,17 +36,16 @@ const Task = (props) => {
 
     return (
         <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>
-            {`${formatDate(new Date(props.task.upcomingDate))}`}
-            <label>
+            <label style={{marginRight: '10px'}}>
                <span style={{fontSize: '25px'}} className={
                    `icon-square
-                    ${props.task.priority === '3' 
-                       ? 
-                       style.highPriority 
-                       : 
-                       props.task.priority === '2' 
+                    ${props.task.priority === '3'
+                       ?
+                       style.highPriority
+                       :
+                       props.task.priority === '2'
                            ?
-                           style.mediumPriority 
+                           style.mediumPriority
                            :
                            props.task.priority === '1' ? style.lowPriority : ''}
                     `}
@@ -53,9 +54,14 @@ const Task = (props) => {
                 <input type="checkbox" className={style.priorityCheckbox} onClick={props.moveTaskIntoArchive}/>
             </label>
 
-            <textarea className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`} value={props.task.body} />
+            <input className={`input ${props.darkTheme ? 'inputColorLight' : 'inputColorDark'}`}
+                   type="text" value={props.task.body}
+                   onChange={updateValue}
+            />
 
-            <button onClick={props.moveTaskIntoBin}>
+            {`${formatDate(new Date(props.task.upcomingDate))}`}
+
+            <button className='button' onClick={props.moveTaskIntoBin}>
                 <span className="icon-bin"></span>
             </button>
         </div>

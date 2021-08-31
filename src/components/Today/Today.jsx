@@ -35,13 +35,14 @@ const Today = props => {
 
     const displayTasks = () => {
 
-        if (props.todayTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+        if (props.todayTasks.length === 0) return <div className='emptyMessage' style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return props.todayTasks.map((el) =>
             <TaskApi key={el.id}
                      task={el}
                      getTasks={props.getTasks}
                      darkTheme={props.darkTheme}
+                     editTaskText={props.editTaskText}
             />)
     }
 

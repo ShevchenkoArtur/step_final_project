@@ -22,6 +22,7 @@ class TodayApi extends React.Component {
                    todayTasks={this.props.todayTasks}
                    getTasks={this.props.getTasks}
                    sortBy={this.props.sortBy}
+                   editTaskText={this.props.editTaskText}
             />
         )
     }

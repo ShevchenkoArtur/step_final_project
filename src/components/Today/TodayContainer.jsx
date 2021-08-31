@@ -18,8 +18,13 @@ const mapDispatchToProps = dispatch => {
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
         },
+
         sortBy: (sortBy, arr) => {
             dispatch(sortBy(sortBy, arr))
+        },
+
+        editTaskText: (id, newValue) => {
+            dispatch(editTaskText(id, newValue))
         }
     }
 }

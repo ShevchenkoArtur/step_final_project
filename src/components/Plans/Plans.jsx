@@ -6,13 +6,14 @@ const Plans = (props) => {
 
     const displayTasks = () => {
 
-        if (props.planTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+        if (props.planTasks.length === 0) return <div className='emptyMessage' style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return props.planTasks.map((el) =>
             <TaskApi key={el.id}
                      task={el}
                      getTasks={props.getTasks}
                      darkTheme={props.darkTheme}
+                     editTaskText={props.editTaskText}
             />)
     }
 

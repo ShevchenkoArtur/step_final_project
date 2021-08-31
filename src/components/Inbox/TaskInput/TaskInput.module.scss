@@ -7,44 +7,8 @@
   border-radius: 10px;
   padding: 20px;
 
-  .firstRow {
-    :global(.textarea) {
-      width: 100%;
-      outline: none;
-      resize: none;
-      overflow: hidden;
-      background-color: inherit;
-      border: 0;
-    }
-
-    :global(.textareaColorLight) {
-      color: $text-color-light;
-    }
-
-    :global(.textareaColorDark) {
-      color: $text-color-dark;
-    }
-  }
-
   .firstColumn {
     display: flex;
-
-    .select {
-      margin-right: 10px;
-      border: 0;
-      outline: none;
-      cursor: pointer;
-      background-color: #4f6d7f;
-      color: #fff;
-      border-radius: 5px;
-      padding: 8px;
-
-      option {
-        background-color: #4f6d7f;
-        color: #fff;
-        margin-bottom: 10px;
-      }
-    }
 
     .dateBtn {
       background-color: #4f6d7f;
@@ -76,6 +40,7 @@
 .secondRow {
   display: flex;
   align-items: center;
+
   .iconPlus {
     font-size: 35px;
   }

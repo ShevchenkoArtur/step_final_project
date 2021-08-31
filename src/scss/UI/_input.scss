@@ -1,0 +1,17 @@
+@import './src/scss/utils/variables';
+
+.input {
+  width: 100%;
+  outline: none;
+  background-color: inherit;
+  border: 0;
+  font-size: 18px;
+}
+
+.inputColorLight {
+  color: $text-color-light;
+}
+
+.inputColorDark {
+  color: $text-color-dark;
+}

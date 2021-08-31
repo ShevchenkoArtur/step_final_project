@@ -1,4 +1,5 @@
 @import './scss/utils/variables';
+@import './scss/utils/extends';
 
 .app-wrapper {
   display: grid;
@@ -8,6 +9,11 @@
 .main-content {
   width: 100%;
   padding: 0 16px 16px 16px;
+  position: relative;
+
+  .emptyMessage {
+    @extend %absolute-center;
+  }
 }
 
 .main-content-dark {

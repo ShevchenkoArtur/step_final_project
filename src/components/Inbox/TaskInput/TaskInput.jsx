@@ -43,14 +43,14 @@ const TaskInput = props => {
 
     return (
         <div className={`${style.addTaskBlock} ${props.darkTheme ? style.addTaskBlockLight : style.addTaskBlockDark}`}>
-            <div className={`${style.firstRow}`}>
+            <div>
                            <textarea
                                className={`textarea ${props.darkTheme ? 'textareaColorLight' : 'textareaColorDark'}`}
                                placeholder='Новая задача' value={props.textarea.value}
                                onChange={updateTextarea}
                            />
                 <div className={style.firstColumn}>
-                    <select className={style.select} value={props.prioritySelect.value} onChange={updatePrioritySelect}>
+                    <select className='select' value={props.prioritySelect.value} onChange={updatePrioritySelect}>
                         <option value="priority" selected hidden>Приоритет</option>
                         <option value="3">Высокий</option>
                         <option value="2">Средний</option>

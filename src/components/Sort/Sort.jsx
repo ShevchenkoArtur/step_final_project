@@ -8,7 +8,7 @@ const Sort = (props) => {
 
     return (
         <div>
-            <select value={props.sortSelect.value} onChange={sortBy}>
+            <select className='select' value={props.sortSelect.value} onChange={sortBy}>
                 <option value="sort" selected hidden>Сортировать</option>
                 <option value='byPriority'>По приоритету</option>
                 <option value='backToPriority'>Обратно приоритету</option>

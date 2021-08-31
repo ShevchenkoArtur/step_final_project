@@ -56,10 +56,22 @@ class TaskApi extends React.Component {
             })
     }
 
-    onEditTask(id) {
-        axios.put(`http://localhost:8080/api/tasks/${id}`)
+    onEditTask(id, newValue) {
+        const data = {
+            body: newValue
+        }
+
+        axios.put(`http://localhost:8080/api/tasks/${id}`, data)
             .then(response => {
                 console.log(response)
+                this.props.editTaskText(id, newValue)
+                axios.get('http://localhost:8080/api/tasks')
+                    .then(response => {
+                        this.props.getTasks(response.data)
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
             })
             .catch(error => {
                 console.log(error)
@@ -73,7 +85,6 @@ class TaskApi extends React.Component {
                 moveTaskIntoArchive={this.moveTaskIntoArchive}
                 onEditTask={this.onEditTask}
                 task={this.props.task}
-                editTaskText={this.props.editTaskText}
                 darkTheme={this.props.darkTheme}
             />
         )

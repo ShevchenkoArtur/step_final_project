@@ -4,7 +4,7 @@ const Bin = props => {
     const displayTasks = () => {
         const binTasks = props.tasks.filter(el => el.inBin)
 
-        if (binTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+        if (binTasks.length === 0) return <div className='emptyMessage' style={{color: '#76899b'}}>Тут пока ничего нет</div>
         return binTasks.map((el, idx) =>
             <div key={idx}>
                 <p>id: {el.id}</p>

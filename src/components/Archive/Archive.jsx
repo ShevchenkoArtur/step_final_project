@@ -6,7 +6,7 @@ const Archive = props => {
     const displayTasks = () => {
         const archiveTasks = props.tasks.filter(el => el.isDone)
 
-        if(archiveTasks.length === 0) return <div style={{color: '#76899b'}}>Тут пока ничего нет</div>
+        if(archiveTasks.length === 0) return <div className='emptyMessage' style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return archiveTasks.map((el) =>
             <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>

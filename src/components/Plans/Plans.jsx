@@ -14,6 +14,7 @@ const Plans = (props) => {
                      getTasks={props.getTasks}
                      darkTheme={props.darkTheme}
                      editTaskText={props.editTaskText}
+                     toggleNotificationFlags={props.toggleNotificationFlags}
             />)
     }
 

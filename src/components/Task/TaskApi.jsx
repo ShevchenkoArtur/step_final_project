@@ -41,7 +41,6 @@ class TaskApi extends React.Component {
 
         axios.put(`http://localhost:8080/api/tasks/${this.props.task.id}`, data)
             .then(response => {
-                console.log(response)
                 axios.get(`http://localhost:8080/api/tasks`)
                     .then(response => {
                         this.props.getTasks(response.data)
@@ -86,6 +85,7 @@ class TaskApi extends React.Component {
                 onEditTask={this.onEditTask}
                 task={this.props.task}
                 darkTheme={this.props.darkTheme}
+                toggleNotificationFlags={this.props.toggleNotificationFlags}
             />
         )
     }

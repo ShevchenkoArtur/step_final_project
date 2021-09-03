@@ -7,6 +7,7 @@ const mapStateToProps = state => {
         tasks: state.tasksReducer.tasks,
         todayTasks: state.tasksReducer.todayTasks,
         planTasks: state.tasksReducer.planTasks,
+        notification: state.tasksReducer.notification
     }
 }
 

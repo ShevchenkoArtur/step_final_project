@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ArchiveApi from './ArchiveApi';
-import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {getTasks, toggleNotificationFlags} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -13,6 +13,10 @@ const mapDispatchToProps = dispatch => {
     return {
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
+        },
+
+        toggleNotificationFlags: notificationType => {
+            dispatch(toggleNotificationFlags(notificationType))
         }
     }
 }

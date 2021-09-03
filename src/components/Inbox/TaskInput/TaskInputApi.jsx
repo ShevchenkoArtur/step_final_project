@@ -44,6 +44,7 @@ class TaskInputApi extends React.Component {
                        calendar={this.props.calendar}
                        toggleCalendar={this.props.toggleCalendar}
                        updateCalendarValue={this.props.updateCalendarValue}
+                       toggleNotificationFlags={this.props.toggleNotificationFlags}
             />
         )
     }

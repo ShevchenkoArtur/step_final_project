@@ -22,6 +22,12 @@ const Archive = props => {
         )
     }
 
+    const clearArchive = () => {
+        props.onClearArchive()
+        props.toggleNotificationFlags('isEmptyArchive')
+        setTimeout(() => props.toggleNotificationFlags('isEmptyArchive'), 2000)
+    }
+
     return (
         <div>
             <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -30,7 +36,7 @@ const Archive = props => {
                     Архив
                 </h1>
 
-                <button className='button' onClick={props.onClearArchive}>Очистить архив</button>
+                <button className='button' onClick={clearArchive}>Очистить архив</button>
             </div>
             {
                displayTasks()

@@ -5,6 +5,20 @@ const Task = (props) => {
 
     const updateValue = (e) => props.onEditTask(props.task.id, e.target.value)
 
+    const onMoveTaskIntoBin = () => {
+        props.moveTaskIntoBin()
+        props.toggleNotificationFlags('inBin')
+        setTimeout(() => props.toggleNotificationFlags('inBin'), 2000)
+    }
+
+    const onMoveTaskIntoArchive = () => {
+        props.moveTaskIntoArchive()
+        props.toggleNotificationFlags('isDone')
+        setTimeout(() => props.toggleNotificationFlags('isDone'), 2000)
+    }
+
+
+
     const formatDate = (date) => {
 
         const daysOfWeek = {
@@ -51,7 +65,7 @@ const Task = (props) => {
                     `}
                >
                </span>
-                <input type="checkbox" className={style.priorityCheckbox} onClick={props.moveTaskIntoArchive}/>
+                <input type="checkbox" className={style.priorityCheckbox} onClick={onMoveTaskIntoArchive}/>
             </label>
 
             <input className={`input ${props.darkTheme ? 'inputColorLight' : 'inputColorDark'}`}
@@ -61,7 +75,7 @@ const Task = (props) => {
 
             {`${formatDate(new Date(props.task.upcomingDate))}`}
 
-            <button className='button' onClick={props.moveTaskIntoBin}>
+            <button className='button' onClick={onMoveTaskIntoBin}>
                 <span className="icon-bin"></span>
             </button>
         </div>

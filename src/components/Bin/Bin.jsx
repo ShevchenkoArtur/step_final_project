@@ -14,6 +14,12 @@ const Bin = props => {
             </div>)
     }
 
+    const onDeleteAll = () => {
+        props.onDeleteAllTasks()
+        props.toggleNotificationFlags('isEmptyBin')
+        setTimeout(() => props.toggleNotificationFlags('isEmptyBin'), 2000)
+    }
+
     return (
         <div>
            <div style={{display: 'flex', justifyContent: 'space-between'}}>
@@ -22,7 +28,7 @@ const Bin = props => {
                    Корзина
                </h1>
 
-               <button className='button' onClick={props.onDeleteAllTasks}>Удалить все</button>
+               <button className='button' onClick={onDeleteAll}>Удалить все</button>
            </div>
 
             {

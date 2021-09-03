@@ -6,7 +6,11 @@ const TaskInput = props => {
 
     const updateTextarea = e => props.updateTextarea(e.target.value)
     const updatePrioritySelect = e => props.updatePrioritySelect(e.target.value)
-    const addTask = () => props.addTask()
+    const addTask = () => {
+        props.addTask()
+        props.toggleNotificationFlags('isAdd')
+        setTimeout(() => props.toggleNotificationFlags('isAdd'), 2000)
+    }
 
     const updateDate = (e) => {
         props.updateCalendarValue(e.value)

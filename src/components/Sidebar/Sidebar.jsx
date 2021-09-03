@@ -2,6 +2,7 @@ import React from 'react'
 import style from './Sidebar.module.scss'
 import SidebarHeader from './SidebarHeader/SidebarHeader';
 import SidebarMenu from './SidebarMenu/SidebarMenu';
+import Notification from '../Notification/Notification';
 
 const Sidebar = props => {
     return (
@@ -14,6 +15,7 @@ const Sidebar = props => {
                          tasks={props.tasks}
                          todayTasks={props.todayTasks}
                          planTasks={props.planTasks}
+                         notification={props.notification}
             />
         </aside>
     )

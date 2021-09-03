@@ -45,6 +45,7 @@ const Today = props => {
                      editTaskText={props.editTaskText}
                      prioritySelect={props.prioritySelect}
                      sortArrBy={props.sortArrBy}
+                     toggleNotificationFlags={props.toggleNotificationFlags}
             />)
     }
 

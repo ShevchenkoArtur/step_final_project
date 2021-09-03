@@ -43,6 +43,7 @@ class BinApi extends React.Component {
                  tasks={this.props.tasks}
                  binTasks={this.props.binTasks}
                  darkTheme={this.props.darkTheme}
+                 toggleNotificationFlags={this.props.toggleNotificationFlags}
             />
         )
     }

@@ -1,5 +1,6 @@
 import React from 'react'
 import TaskInputContainer from './TaskInput/TaskInputContainer';
+import Notification from '../Notification/Notification';
 
 const Inbox = (props) => {
     return (

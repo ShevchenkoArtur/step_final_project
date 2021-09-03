@@ -4,7 +4,7 @@ import {
     FIND_LATER_TASKS,
     GET_TASKS,
     SORT_ARR_BY,
-    TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
+    TOGGLE_CALENDAR, TOGGLE_NOTIFICATION_FLAGS, UPDATE_CALENDAR_VALUE,
     UPDATE_PRIORITY_SELECT,
     UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
@@ -20,3 +20,4 @@ export const findLaterTasks = () => ({type: FIND_LATER_TASKS})
 export const sortArrBy = (sortBy) => ({type: SORT_ARR_BY, sortBy})
 export const toggleCalendar = () => ({type: TOGGLE_CALENDAR})
 export const updateCalendarValue = newValue => ({type: UPDATE_CALENDAR_VALUE, newValue})
+export const toggleNotificationFlags = (notificationType) => ({type: TOGGLE_NOTIFICATION_FLAGS, notificationType})

@@ -2,7 +2,7 @@ import {
     ADD_TASK, EDIT_TASK_TEXT,
     GET_TASKS,
     SORT_ARR_BY,
-    TOGGLE_CALENDAR, UPDATE_CALENDAR_VALUE,
+    TOGGLE_CALENDAR, TOGGLE_NOTIFICATION_FLAGS, UPDATE_CALENDAR_VALUE,
     UPDATE_PRIORITY_SELECT,
     UPDATE_SORT_SELECT,
     UPDATE_TEXTAREA
@@ -31,6 +31,14 @@ const initialState = {
         value: new Date(),
         weekStart: 1,
     },
+
+    notification: {
+        isAdd: false,
+        inBin: false,
+        isDone: false,
+        isEmptyBin: false,
+        isEmptyArchive: false,
+    }
 }
 
 
@@ -136,6 +144,14 @@ const TasksReducer = (state = initialState, action) => {
                     ...state.calendar,
                     value: action.newValue,
                     isOpen: false
+                }
+            }
+        case TOGGLE_NOTIFICATION_FLAGS:
+            return {
+                ...state,
+                notification: {
+                    ...state.notification,
+                    [action.notificationType]: !state.notification[action.notificationType]
                 }
             }
         default:

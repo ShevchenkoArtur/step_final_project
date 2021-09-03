@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import TodayApi from './TodayApi';
 import {
     editTaskText,
-    getTasks, sortArrBy,
+    getTasks, sortArrBy, toggleNotificationFlags,
 } from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
@@ -26,6 +26,10 @@ const mapDispatchToProps = dispatch => {
 
         editTaskText: (id, newValue) => {
             dispatch(editTaskText(id, newValue))
+        },
+
+        toggleNotificationFlags: notificationType => {
+            dispatch(toggleNotificationFlags(notificationType))
         }
     }
 }

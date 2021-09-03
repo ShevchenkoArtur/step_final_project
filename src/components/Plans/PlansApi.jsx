@@ -22,6 +22,7 @@ class PlansApi extends Component {
                 getTasks={this.props.getTasks}
                 darkTheme={this.props.darkTheme}
                 editTaskText={this.props.editTaskText}
+                toggleNotificationFlags={this.props.toggleNotificationFlags}
             />
         );
     }

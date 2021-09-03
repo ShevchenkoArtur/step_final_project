@@ -1,5 +1,5 @@
 import {connect} from 'react-redux';
-import {getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {getTasks, toggleNotificationFlags} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 import BinApi from './BinApi';
 
 const mapStateToProps = state => {
@@ -14,6 +14,10 @@ const mapDispatchToProps = dispatch => {
     return {
         getTasks: (tasks) => {
             dispatch(getTasks(tasks))
+        },
+
+        toggleNotificationFlags: (notificationType) => {
+            dispatch(toggleNotificationFlags(notificationType))
         }
     }
 }

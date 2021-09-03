@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import PlansApi from './PlansApi';
-import {editTaskText, getTasks} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {editTaskText, getTasks, toggleNotificationFlags} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
@@ -17,6 +17,10 @@ const mapDispatchToProps = dispatch => {
 
         editTaskText: (id, newValue) => {
             dispatch(editTaskText(id, newValue))
+        },
+
+        toggleNotificationFlags: notificationType => {
+            dispatch(toggleNotificationFlags(notificationType))
         }
     }
 }

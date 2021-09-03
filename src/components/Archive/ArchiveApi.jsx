@@ -43,6 +43,7 @@ class ArchiveApi extends React.Component {
             <Archive tasks={this.props.tasks}
                      darkTheme={this.props.darkTheme}
                      onClearArchive={this.onClearArchive}
+                     toggleNotificationFlags={this.props.toggleNotificationFlags}
             />
         )
     }

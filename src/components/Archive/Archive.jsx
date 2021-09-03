@@ -9,7 +9,7 @@ const Archive = props => {
         if(archiveTasks.length === 0) return <div className='emptyMessage' style={{color: '#76899b'}}>Тут пока ничего нет</div>
 
         return archiveTasks.map((el) =>
-            <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`}>
+            <div className={`taskBlock ${props.darkTheme ? 'taskBlockLight' : 'taskBlockDark'}`} key={el.id}>
                 <label>
                <span style={{fontSize: '25px', color: 'green'}} className={`icon-check`}
                >
@@ -24,10 +24,14 @@ const Archive = props => {
 
     return (
         <div>
-            <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-archive"></span>
-                Архив
-            </h1>
+            <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
+                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-archive"></span>
+                    Архив
+                </h1>
+
+                <button className='button' onClick={props.onClearArchive}>Очистить архив</button>
+            </div>
             {
                displayTasks()
             }

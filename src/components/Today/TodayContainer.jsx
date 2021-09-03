@@ -1,8 +1,8 @@
 import {connect} from 'react-redux';
 import TodayApi from './TodayApi';
 import {
-    editTaskText, findLaterTasks,
-    getTasks, getTodayDate,
+    editTaskText,
+    getTasks, sortArrBy,
 } from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
@@ -10,6 +10,7 @@ const mapStateToProps = state => {
         tasks: state.tasksReducer.tasks,
         todayTasks: state.tasksReducer.todayTasks,
         darkTheme: state.themeReducer.darkTheme,
+        prioritySelect: state.tasksReducer.prioritySelect,
     }
 }
 
@@ -19,8 +20,8 @@ const mapDispatchToProps = dispatch => {
             dispatch(getTasks(tasks))
         },
 
-        sortBy: (sortBy, arr) => {
-            dispatch(sortBy(sortBy, arr))
+        sortArrBy: (sortBy) => {
+            dispatch(sortArrBy(sortBy))
         },
 
         editTaskText: (id, newValue) => {

@@ -25,7 +25,9 @@ const Plans = (props) => {
                     Планы <span style={{fontSize: '15px'}}></span>
                 </h1>
 
-                <SortContainer/>
+                <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '40px'}}>
+                    <SortContainer />
+                </div>
             </div>
 
             {displayTasks()}

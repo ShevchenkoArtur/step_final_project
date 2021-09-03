@@ -43,6 +43,8 @@ const Today = props => {
                      getTasks={props.getTasks}
                      darkTheme={props.darkTheme}
                      editTaskText={props.editTaskText}
+                     prioritySelect={props.prioritySelect}
+                     sortArrBy={props.sortArrBy}
             />)
     }
 
@@ -53,8 +55,9 @@ const Today = props => {
                     <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-star"></span>
                     Сегодня <span style={{fontSize: '15px'}}>{getTodayDate()}</span>
                 </h1>
-
-                <SortContainer/>
+                <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '40px'}}>
+                    <SortContainer />
+                </div>
             </div>
 
             {displayTasks()}

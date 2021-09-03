@@ -39,9 +39,9 @@ exports.create = (req, res) => {
 // Retrieve all Tasks from the database.
 exports.findAll = (req, res) => {
     const body = req.query.body;
-    const condition = body ? { body: { [Op.like]: `%${body}%` } } : null;
+    const condition = body ? {body: {[Op.like]: `%${body}%`}} : null;
 
-    Task.findAll({ where: condition })
+    Task.findAll({where: condition})
         .then(data => {
             res.send(data);
         })
@@ -73,7 +73,7 @@ exports.update = (req, res) => {
     const id = req.params.id;
 
     Task.update(req.body, {
-        where: { id: id }
+        where: {id: id}
     })
         .then(num => {
             if (num == 1) {
@@ -98,7 +98,7 @@ exports.delete = (req, res) => {
     const id = req.params.id;
 
     Task.destroy({
-        where: { id: id }
+        where: {id: id}
     })
         .then(num => {
             if (num == 1) {
@@ -125,7 +125,23 @@ exports.deleteAll = (req, res) => {
         truncate: false
     })
         .then(nums => {
-            res.send({ message: `${nums} Tasks were deleted successfully!` });
+            res.send({message: `${nums} Tasks were deleted successfully!`});
+        })
+        .catch(err => {
+            res.status(500).send({
+                message:
+                    err.message || "Some error occurred while removing all tasks."
+            });
+        });
+};
+
+exports.clearArchive = (req, res) => {
+    Task.destroy({
+        where: {isDone: true},
+        truncate: false
+    })
+        .then(nums => {
+            res.send({message: `${nums} Tasks were deleted successfully!`});
         })
         .catch(err => {
             res.status(500).send({

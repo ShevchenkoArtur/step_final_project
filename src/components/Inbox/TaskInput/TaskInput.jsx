@@ -50,7 +50,7 @@ const TaskInput = props => {
                                onChange={updateTextarea}
                            />
                 <div className={style.firstColumn}>
-                    <select className='select' value={props.prioritySelect.value} onChange={updatePrioritySelect}>
+                    <select style={{marginRight: '10px'}} className='select' value={props.prioritySelect.value} onChange={updatePrioritySelect}>
                         <option value="priority" selected hidden>Приоритет</option>
                         <option value="3">Высокий</option>
                         <option value="2">Средний</option>

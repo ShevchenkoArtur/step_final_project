@@ -11,12 +11,19 @@
     display: flex;
 
     .dateBtn {
-      background-color: #4f6d7f;
       color: #fff;
       padding: 10px 16px;
       border: 0;
       border-radius: 5px;
       cursor: pointer;
+    }
+
+    .dateBtnDark {
+      background-color: #4f6d7f;
+    }
+
+    .dateBtnLight {
+      background-color: #508ACEFF;
     }
 
     .dateBtns {
@@ -44,4 +51,12 @@
   .iconPlus {
     font-size: 35px;
   }
+}
+
+:global(.dateFormatDark) {
+  color: #fff;
+}
+
+:global(.dateFormatLight) {
+  color: #596175;
 }

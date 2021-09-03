@@ -101,7 +101,7 @@ const TasksReducer = (state = initialState, action) => {
                     return {
                         ...state,
                         todayTasks: [...state.todayTasks].sort((a, b) => a.priority - b.priority),
-                        planTasks: [...state.planTasks].sort((a, b) => b.priority - a.priority)
+                        planTasks: [...state.planTasks].sort((a, b) => a.priority - b.priority)
                     }
                 default :
                     return state

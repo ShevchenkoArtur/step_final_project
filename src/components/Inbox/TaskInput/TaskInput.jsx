@@ -54,7 +54,8 @@ const TaskInput = props => {
                                onChange={updateTextarea}
                            />
                 <div className={style.firstColumn}>
-                    <select style={{marginRight: '10px'}} className='select' value={props.prioritySelect.value} onChange={updatePrioritySelect}>
+                    <select style={{marginRight: '10px'}} className={`select ${props.darkTheme ? 'selectLight optionlight': 'selectDark optionDark'}`} value={props.prioritySelect.value}
+                            onChange={updatePrioritySelect}>
                         <option value="priority" selected hidden>Приоритет</option>
                         <option value="3">Высокий</option>
                         <option value="2">Средний</option>
@@ -64,8 +65,15 @@ const TaskInput = props => {
 
                     <div>
                         <div className={style.dateBtns}>
-                            <button className={style.dateBtn} onClick={props.toggleCalendar}>Дата</button>
-                            {` ${props.calendar.value ? formatDate(props.calendar.value) : formatDate(props.calendar.todayDate)}`}
+                            <button
+                                className={`${style.dateBtn} ${props.darkTheme ? style.dateBtnLight : style.dateBtnDark}`}
+                                onClick={props.toggleCalendar}>
+                                <span style={{marginRight: '10px'}} className='icon-calendar'></span>
+                                Дата
+                            </button>
+                            <span className={`${props.darkTheme ? 'dateFormatLight': 'dateFormatDark'}`}>
+                                {` ${props.calendar.value ? formatDate(props.calendar.value) : formatDate(props.calendar.todayDate)}`}
+                            </span>
                         </div>
                         {
                             props.calendar.isOpen
@@ -85,7 +93,7 @@ const TaskInput = props => {
 
             <div className={`${style.secondRow}`}>
                 <button className='button' onClick={addTask}>
-                    <span className={`${style.iconPlus} iconPlusDark icon-plus`}></span>
+                    <span className={`${style.iconPlus} icon-plus ${props.darkTheme ? 'iconLight': 'iconDark'}`}></span>
                 </button>
             </div>
         </div>

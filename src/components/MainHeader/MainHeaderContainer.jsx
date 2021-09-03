@@ -3,7 +3,9 @@ import MainHeader from './MainHeader';
 import {switchDarkTheme} from '../../redux/reducers/themeReducer/themeActionCreators';
 
 const mapStateToProps = state => {
-    return {}
+    return {
+        darkTheme: state.themeReducer.darkTheme
+    }
 }
 
 const mapDispatchToProps = dispatch => {

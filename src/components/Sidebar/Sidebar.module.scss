@@ -19,12 +19,17 @@
 }
 
 .item {
-  padding-bottom: 20px;
+  padding: 10px;
   white-space: nowrap;
+  border-radius: 5px;
+}
 
-  &:last-child {
-    padding-bottom: 0;
-  }
+.itemHoverDark:hover {
+  background-color: #76899b;
+}
+
+.itemHoverLight:hover {
+  background-color: #fff;
 }
 
 .linkColorDark {

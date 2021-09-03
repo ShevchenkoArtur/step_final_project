@@ -8,6 +8,7 @@ import {
 const mapStateToProps = state => {
     return {
         sortSelect: state.tasksReducer.sortSelect,
+        darkTheme: state.themeReducer.darkTheme
     }
 }
 

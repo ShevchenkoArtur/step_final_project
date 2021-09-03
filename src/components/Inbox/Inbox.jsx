@@ -1,16 +1,17 @@
 import React from 'react'
 import TaskInputContainer from './TaskInput/TaskInputContainer';
-import Notification from '../Notification/Notification';
 
 const Inbox = (props) => {
     return (
         <div>
             <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-inbox"></span>
+                <span style={{paddingRight: '10px'}}
+                      className={`icon-inbox ${props.darkTheme ? 'iconLight' : 'iconDark'}`}>
+                </span>
                 Новая задача
             </h1>
 
-            <TaskInputContainer />
+            <TaskInputContainer/>
         </div>
     )
 }

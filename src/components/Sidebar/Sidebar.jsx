@@ -6,7 +6,7 @@ import Notification from '../Notification/Notification';
 
 const Sidebar = props => {
     return (
-        <aside
+        <aside style={{position: 'relative'}}
             className={`${style.sidebar} 
                         ${props.darkTheme ? style.sidebarBackgroundLight : style.sidebarBackgroundDark}`}
         >

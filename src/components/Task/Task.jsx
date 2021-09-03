@@ -17,10 +17,7 @@ const Task = (props) => {
         setTimeout(() => props.toggleNotificationFlags('isDone'), 2000)
     }
 
-
-
     const formatDate = (date) => {
-
         const daysOfWeek = {
             0: 'Вс',
             1: 'Пн',
@@ -30,6 +27,7 @@ const Task = (props) => {
             5: 'Пт',
             6: 'Сб'
         }
+
         const months = {
             0: 'янв',
             1: 'фев',
@@ -53,6 +51,7 @@ const Task = (props) => {
             <label style={{marginRight: '10px'}}>
                <span style={{fontSize: '25px'}} className={
                    `icon-square
+                   ${props.darkTheme ? 'iconLight' : 'iconDark'}
                     ${props.task.priority === '3'
                        ?
                        style.highPriority
@@ -73,10 +72,16 @@ const Task = (props) => {
                    onChange={updateValue}
             />
 
-            {`${formatDate(new Date(props.task.upcomingDate))}`}
+            <div className={style.taskDate}>
+                <span style={{marginRight: '10px'}}
+                      className={`icon-calendar ${props.darkTheme ? 'iconLight' : 'iconDark'}`}></span>
+                <span className={`${props.darkTheme ? 'dateFormatLight' : 'dateFormatDark'}`}>
+                    {`${formatDate(new Date(props.task.upcomingDate))}`}
+                </span>
+            </div>
 
             <button className='button' onClick={onMoveTaskIntoBin}>
-                <span className="icon-bin"></span>
+                <span className={`icon-bin ${props.darkTheme ? 'iconLight' : 'iconDark'}`}></span>
             </button>
         </div>
     );

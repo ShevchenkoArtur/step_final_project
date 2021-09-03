@@ -81,10 +81,14 @@ body {
 
 .iconPlusDark {
   color: #4f6d7f;
+}
 
-  &:hover {
-    color: #8099a8;
-  }
+.iconLight {
+  color: $sidebar-icon-light;
+}
+
+.iconDark {
+  color: #4f6d7f;
 }
 
 @import './scss/main';

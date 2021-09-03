@@ -53,7 +53,8 @@ const Today = props => {
         <div>
             <div>
                 <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-star"></span>
+                    <span style={{paddingRight: '10px'}}
+                          className={`icon-star ${props.darkTheme ? 'iconLight' : 'iconDark'}`}></span>
                     Сегодня <span style={{fontSize: '15px'}}>{getTodayDate()}</span>
                 </h1>
                 <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '40px'}}>

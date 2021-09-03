@@ -12,7 +12,7 @@ const MainHeader = props => {
             <ul className={style.list}>
                 <li className={style.item}>
                     <button onClick={switchDarkTheme} className='button'>
-                        <span className="icon-theme"></span>
+                        <span className={`icon-theme ${props.darkTheme ? 'iconLight' : 'iconDark'}`}></span>
                     </button>
                 </li>
             </ul>

@@ -17,13 +17,12 @@ const Plans = (props) => {
                      toggleNotificationFlags={props.toggleNotificationFlags}
             />)
     }
-
     return (
         <div>
             <div>
                 <h1 className={props.darkTheme ? 'linkColorLight' : 'linkColorDark'}>
-                    <span style={{color: '#76899b', paddingRight: '10px'}} className="icon-calendar"></span>
-                    Планы <span style={{fontSize: '15px'}}></span>
+                    <span style={{paddingRight: '10px'}} className={`icon-calendar ${props.darkTheme ? 'iconLight' : 'iconDark'}`}></span>
+                    Планы
                 </h1>
 
                 <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '40px'}}>

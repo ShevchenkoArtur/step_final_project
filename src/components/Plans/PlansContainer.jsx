@@ -1,10 +1,14 @@
 import {connect} from 'react-redux';
 import PlansApi from './PlansApi';
-import {editTaskText, getTasks, toggleNotificationFlags} from '../../redux/reducers/tasksReducer/tasksActionCreators';
+import {
+    editTaskText,
+    getTasks,
+    toggleNotificationFlags
+} from '../../redux/reducers/tasksReducer/tasksActionCreators';
 
 const mapStateToProps = state => {
     return {
-        darkTheme: state.tasksReducer.darkTheme,
+        darkTheme: state.themeReducer.darkTheme,
         planTasks: state.tasksReducer.planTasks
     }
 }

@@ -13,7 +13,7 @@
 }
 
 :global(.taskBlockLight) {
-  background-color: #dedede;
+  background-color: #eef2f9;
 }
 
 .priorityCheckbox {
@@ -38,4 +38,10 @@
   &:before {
     color: blue;
   }
+}
+
+.taskDate {
+  white-space: nowrap;
+  padding: 8px;
+  margin-right: 20px;
 }

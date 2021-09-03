@@ -5,17 +5,17 @@ import NotificationContainer from '../../Notification/NotificationContainer';
 
 const SidebarMenu = props => {
     const makeNotification = () => {
-        if(props.notification.isAdd) return <NotificationContainer />
-        if(props.notification.inBin) return <NotificationContainer />
-        if(props.notification.isDone) return <NotificationContainer />
-        if(props.notification.isEmptyBin) return <NotificationContainer />
-        if(props.notification.isEmptyArchive) return <NotificationContainer />
+        if (props.notification.isAdd) return <NotificationContainer/>
+        if (props.notification.inBin) return <NotificationContainer/>
+        if (props.notification.isDone) return <NotificationContainer/>
+        if (props.notification.isEmptyBin) return <NotificationContainer/>
+        if (props.notification.isEmptyArchive) return <NotificationContainer/>
     }
 
     return (
         <div>
             <ul className={`${style.list}`}>
-                <li className={`${style.item}`}>
+                <li className={`${style.item} ${props.darkTheme ? style.itemHoverLight : style.itemHoverDark}`}>
                     <NavLink
                         className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                         to='/inbox'
@@ -30,7 +30,7 @@ const SidebarMenu = props => {
                         </div>
                     </NavLink>
                 </li>
-                <li className={`${style.item}`}>
+                <li className={`${style.item} ${props.darkTheme ? style.itemHoverLight : style.itemHoverDark}`}>
                     <NavLink
                         className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                         to="/"
@@ -48,7 +48,7 @@ const SidebarMenu = props => {
                         </div>
                     </NavLink>
                 </li>
-                <li className={`${style.item}`}>
+                <li className={`${style.item} ${props.darkTheme ? style.itemHoverLight : style.itemHoverDark}`}>
                     <NavLink
                         className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                         to="/plans"
@@ -66,7 +66,7 @@ const SidebarMenu = props => {
                         </div>
                     </NavLink>
                 </li>
-                <li className={`${style.item}`}>
+                <li className={`${style.item} ${props.darkTheme ? style.itemHoverLight : style.itemHoverDark}`}>
                     <NavLink
                         className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                         to="/archive"
@@ -85,7 +85,7 @@ const SidebarMenu = props => {
                         </div>
                     </NavLink>
                 </li>
-                <li className={`${style.item}`}>
+                <li className={`${style.item} ${props.darkTheme ? style.itemHoverLight : style.itemHoverDark}`}>
                     <NavLink
                         className={`${style.link} ${props.darkTheme ? 'linkColorLight' : 'linkColorDark'}`}
                         to="/bin"
